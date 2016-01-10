@@ -2,6 +2,7 @@ package com.miguel.angelcalderon;
 
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import com.miguel.angelcalderon.model.Place;
 import com.miguel.angelcalderon.query.Query;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -22,6 +24,8 @@ import java.util.List;
 
 @EActivity(R.layout.more_info)
 public class MoreInfo extends AppCompatActivity {
+
+    private static final String TAG = "Activity MoreInfo";
 
     @ViewById(R.id.slider)
     SliderLayout sliderLayout;
@@ -117,6 +121,11 @@ public class MoreInfo extends AppCompatActivity {
         url_maps.put("Hamburguesa Mixta 15 Bs", R.drawable.panchita_cabinitas);
 */
 
+    }
+
+    @Click
+    void tv_more_info_menu(){
+        Log.d(TAG, "Press Menu Dialog");
     }
 
 

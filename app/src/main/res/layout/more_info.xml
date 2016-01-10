@@ -186,6 +186,27 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:padding="@dimen/padding_app_bar_top"
+                    android:src="@mipmap/ic_public_black_36dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:clickable="true"
+                    android:id="@+id/tv_more_info_menu"
+                    android:padding="@dimen/padding_app_bar_top"
+                    android:text="@string/app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </RelativeLayout>

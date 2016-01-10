@@ -138,6 +138,8 @@ public class App extends Application {
             placeMiLlajta.image = imageMiLlajta_3;
             placeMiLlajta.save();
 
+            /*Pizzeria */
+
             /*Clubs :
 
             Club Orange*/
