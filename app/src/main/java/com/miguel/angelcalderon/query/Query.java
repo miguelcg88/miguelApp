@@ -2,8 +2,7 @@ package com.miguel.angelcalderon.query;
 
 import com.activeandroid.query.Select;
 import com.miguel.angelcalderon.model.Category;
-import com.miguel.angelcalderon.model.Image;
-import com.miguel.angelcalderon.model.InfoRestaurant;
+import com.miguel.angelcalderon.model.Item;
 import com.miguel.angelcalderon.model.Place;
 
 import java.util.List;
@@ -13,7 +12,7 @@ public class Query {
     public List<Place> getAllPlace(Category category) {
         return new Select()
                 .from(Place.class)
-                .where("Category = ?", category.getId())
+                .where("Categories = ?", category.getId())
                 .orderBy("RANDOM()")
                 .execute();
     }
@@ -25,20 +24,6 @@ public class Query {
                 .execute();
     }
 
-    public List<Place> getPlace(String name) {
-        return new Select()
-                .from(Place.class)
-                .where("Name =?", name)
-                .execute();
-    }
-
-    public List<Image> getAllImage(String name) {
-        return new Select()
-                .from(Image.class)
-                .where("Place =?", name)
-                .execute();
-    }
-
     public List<Place> getAllPlaceSort() {
         return new Select()
                 .from(Place.class)
@@ -47,10 +32,19 @@ public class Query {
                 .execute();
     }
 
-    public List<InfoRestaurant> getAllPlaceTwenty(String twenty) {
+    public List<Item> getAllPlaceByAmount(String amount) {
         return new Select()
-                .from(InfoRestaurant.class)
-                .where("Price <=?", twenty)
+                .from(Item.class)
+                .where("Price <=?", amount)
+                .groupBy("Places")
                 .execute();
     }
+
+    public List<Item> getAllItemByPlace(Place place) {
+        return new Select()
+                .from(Item.class)
+                .where("Places =?", place.getId())
+                .execute();
+    }
+
 }

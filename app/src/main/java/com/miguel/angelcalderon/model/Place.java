@@ -31,17 +31,8 @@ public class Place extends Model {
     @Column(name = "ScheduleHour")
     public String schedule_hour;
 
-    @Column(name = "Category")
+    @Column(name = "Categories")
     public Category category;
-
-    @Column(name = "InfoClub")
-    public InfoClub infoClub;
-
-    @Column(name = "InfoRestaurant")
-    public InfoRestaurant infoRestaurant;
-
-    @Column(name = "Image")
-    public Image image;
 
     public Place() {}
 

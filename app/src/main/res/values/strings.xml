@@ -3,15 +3,15 @@
     <string name="action_settings">Settings</string>
 
     <string name="welcome">Bienvenido</string>
-    <string name="last_welcome">A dónde vamos ?</string>
+    <string name="last_welcome">A dónde vamos?</string>
 
-    <string name="menu_item_money">Cuanto tengo ?</string>
+    <string name="menu_item_money">Segun mi bolsillo</string>
     <string name="menu_item_location">Mapa</string>
-    <string name="menu_item_make">Que te gustaría ?</string>
-    <string name="menu_item_help_me">Sorpréndeme !</string>
-    <string name="menu_item_place">Lugares</string>
+    <string name="menu_item_make">Que te gustaría hacer?</string>
+    <string name="menu_item_help_me">Te sugiero algunos lugares!</string>
+    <string name="menu_item_place">Encontrar lugares?</string>
     <string name="menu_item_more_info">Mas información</string>
-    <string name="text_message_unlimited">Sin limite de precio !</string>
+    <string name="text_message_unlimited">Sin limite de precio!</string>
     <string name="title_place">Titulo de Lugar</string>
     <string name="phone_place">444444</string>
     <string name="address_place">av. America entre c. Junin y c. Pedro</string>

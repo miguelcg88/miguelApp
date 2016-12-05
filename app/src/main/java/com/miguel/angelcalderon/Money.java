@@ -9,8 +9,10 @@ import android.view.View;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Fullscreen;
 import org.androidannotations.annotations.ViewById;
 
+@Fullscreen
 @EActivity(R.layout.money)
 public class Money extends AppCompatActivity {
 

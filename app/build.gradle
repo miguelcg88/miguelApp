@@ -31,7 +31,7 @@ dependencies {
     // Library for RecyclerView and Cards
     compile "com.android.support:cardview-v7:$ALVersion"
     compile "com.android.support:recyclerview-v7:$ALVersion"
-    // Dependency for Image Circle
+    // Dependency for Item Circle
     compile 'de.hdodenhof:circleimageview:1.3.0'
     // Dependency for multidex
     compile 'com.android.support:multidex:1.0.1'
@@ -42,7 +42,7 @@ dependencies {
     compile 'com.github.clans:fab:1.6.2'
     // Dependencies for ActiveAndroid
     compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
-    // Dependencies for Image View Slider
+    // Dependencies for Item View Slider
     compile 'com.squareup.picasso:picasso:2.3.2'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.slider:library:1.1.5@aar'

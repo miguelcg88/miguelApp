@@ -7,9 +7,7 @@ import android.util.Log;
 
 import com.activeandroid.ActiveAndroid;
 import com.miguel.angelcalderon.model.Category;
-import com.miguel.angelcalderon.model.Image;
-import com.miguel.angelcalderon.model.InfoClub;
-import com.miguel.angelcalderon.model.InfoRestaurant;
+import com.miguel.angelcalderon.model.Item;
 import com.miguel.angelcalderon.model.Place;
 import com.miguel.angelcalderon.query.DefaultData;
 
@@ -27,7 +25,7 @@ public class App extends Application {
         System.out.println(defaultData.defaultDatas().size());
         if (defaultData.defaultDatas().size() == 0) {
 
-            /*Categories:  */
+            /****** Categories: ******/
             Category categoryRestaurant = new Category();
             categoryRestaurant.name = STATIC_RESTAURANT;
             categoryRestaurant.description = "Rostiserias, Snack, ..";
@@ -38,39 +36,9 @@ public class App extends Application {
             categoryClub.description= "Cafes, Bars, Peñas, ...";
             categoryClub.save();
 
-            /*Restaurants
+            /****** Places: ******/
 
-             Restaurant Panchita*/
-            InfoRestaurant infoRestaurantPanchita_1 = new InfoRestaurant();
-            infoRestaurantPanchita_1.name = "Cabañitas";
-            infoRestaurantPanchita_1.price = "40";
-            infoRestaurantPanchita_1.place = "Panchita";
-            infoRestaurantPanchita_1.save();
-            InfoRestaurant infoRestaurantPanchita_2 = new InfoRestaurant();
-            infoRestaurantPanchita_2.name = "Burguer";
-            infoRestaurantPanchita_2.price = "20";
-            infoRestaurantPanchita_2.place = "Panchita";
-            infoRestaurantPanchita_2.save();
-            InfoRestaurant infoRestaurantPanchita_3 = new InfoRestaurant();
-            infoRestaurantPanchita_3.name = "Piernitas";
-            infoRestaurantPanchita_3.price = "30";
-            infoRestaurantPanchita_3.place = "Panchita";
-            infoRestaurantPanchita_3.save();
-            Image imagePanchita_1 = new Image();
-            imagePanchita_1.name = "panchita_cabiñitas";
-            imagePanchita_1.detail = "Cabañita 40 Bs";
-            imagePanchita_1.place = "Panchita";
-            imagePanchita_1.save();
-            Image imagePanchita_2 = new Image();
-            imagePanchita_2.name = "panchita_burguer";
-            imagePanchita_2.detail = "Burguer 15 Bs";
-            imagePanchita_2.place = "Panchita";
-            imagePanchita_2.save();
-            Image imagePanchita_3 = new Image();
-            imagePanchita_3.name = "panchita_piernas";
-            imagePanchita_3.detail = "Piernitas 25 Bs";
-            imagePanchita_3.place = "Panchita";
-            imagePanchita_3.save();
+            // Planchita
             Place placePanchita = new Place();
             placePanchita.icon = "panchita_icon";
             placePanchita.name = "Panchita";
@@ -81,45 +49,9 @@ public class App extends Application {
             placePanchita.schedule_day = "Lunes - Domingo";
             placePanchita.schedule_hour = "8:30 - 21:30";
             placePanchita.category = categoryRestaurant;
-            placePanchita.infoRestaurant = infoRestaurantPanchita_1;
-            placePanchita.infoRestaurant = infoRestaurantPanchita_2;
-            placePanchita.infoRestaurant = infoRestaurantPanchita_3;
-            placePanchita.image = imagePanchita_1;
-            placePanchita.image = imagePanchita_2;
-            placePanchita.image = imagePanchita_3;
             placePanchita.save();
 
-            /*Mi Llajta*/
-            InfoRestaurant infoRestaurantMiLlajta_1 = new InfoRestaurant();
-            infoRestaurantMiLlajta_1.name = "Ensalada";
-            infoRestaurantMiLlajta_1.price = "15";
-            infoRestaurantMiLlajta_1.place = "Mi Llajta";
-            infoRestaurantMiLlajta_1.save();
-            InfoRestaurant infoRestaurantMiLlajta_2 = new InfoRestaurant();
-            infoRestaurantMiLlajta_2.name = "Fideos";
-            infoRestaurantMiLlajta_2.price = "7";
-            infoRestaurantMiLlajta_2.place = "Mi Llajta";
-            infoRestaurantMiLlajta_2.save();
-            InfoRestaurant infoRestaurantMiLlajta_3 = new InfoRestaurant();
-            infoRestaurantMiLlajta_3.name = "Pescado ";
-            infoRestaurantMiLlajta_3.price = "25";
-            infoRestaurantMiLlajta_3.place = "Mi Llajta";
-            infoRestaurantMiLlajta_3.save();
-            Image imageMiLlajta_1 =  new Image();
-            imageMiLlajta_1.name = "millajta_ensalada";
-            imageMiLlajta_1.detail = "Polensa 35 Bs";
-            imageMiLlajta_1.place = "Mi Llajta";
-            imageMiLlajta_1.save();
-            Image imageMiLlajta_2 =  new Image();
-            imageMiLlajta_2.name = "millajta_fideos";
-            imageMiLlajta_2.detail = "Fideo 25 Bs";
-            imageMiLlajta_2.place = "Mi Llajta";
-            imageMiLlajta_2.save();
-            Image imageMiLlajta_3 =  new Image();
-            imageMiLlajta_3.name = "millajta_pescado";
-            imageMiLlajta_3.detail = "Pescado 35 Bs";
-            imageMiLlajta_3.place = "Mi Llajta";
-            imageMiLlajta_3.save();
+            // Mi llajta
             Place placeMiLlajta = new Place();
             placeMiLlajta.icon = "millajta_icon";
             placeMiLlajta.name = "Mi Llajta";
@@ -130,38 +62,9 @@ public class App extends Application {
             placeMiLlajta.schedule_day = "Lunes - Domingo";
             placeMiLlajta.schedule_hour = "9:00 - 23:00";
             placeMiLlajta.category = categoryRestaurant;
-            placeMiLlajta.infoRestaurant = infoRestaurantMiLlajta_1;
-            placeMiLlajta.infoRestaurant = infoRestaurantMiLlajta_2;
-            placeMiLlajta.infoRestaurant = infoRestaurantMiLlajta_3;
-            placeMiLlajta.image = imageMiLlajta_1;
-            placeMiLlajta.image = imageMiLlajta_2;
-            placeMiLlajta.image = imageMiLlajta_3;
             placeMiLlajta.save();
 
-            /*Clubs :
-
-            Club Orange*/
-            InfoClub infoClubOrange = new InfoClub();
-            infoClubOrange.music = "Etiqueta negra, Jarana";
-            infoClubOrange.drink = "Paceña, Huari, Taquiña";
-            infoClubOrange.price = "20 Bs";
-            infoClubOrange.place = "Sachawasi";
-            infoClubOrange.save();
-            Image imageOrange_1 = new Image();
-            imageOrange_1.name = "sachawasi_burguer";
-            imageOrange_1.detail = "Maldito 20 Bs";
-            imageOrange_1.place = "Sachawasi";
-            imageOrange_1.save();
-            Image imageOrange_2 = new Image();
-            imageOrange_2.name = "sachawasi_carne";
-            imageOrange_2.detail = "Pacumuto 35 Bs";
-            imageOrange_2.place = "Sachawasi";
-            imageOrange_2.save();
-            Image imageOrange_3 = new Image();
-            imageOrange_3.name = "sachawasi_planchita";
-            imageOrange_3.detail = "Plancha 70 Bs";
-            imageOrange_3.place = "Sachawasi";
-            imageOrange_3.save();
+            // Orange
             Place placeOrange = new Place();
             placeOrange.icon = "sachawasi_icon";
             placeOrange.name = "Sachawasi";
@@ -172,11 +75,79 @@ public class App extends Application {
             placeOrange.schedule_day = "Viernes - Sabados - Domingos";
             placeOrange.schedule_hour = "19:00 - 23:00 pm";
             placeOrange.category = categoryClub;
-            placeOrange.infoClub = infoClubOrange;
-            placeOrange.image = imageOrange_1;
-            placeOrange.image = imageOrange_2;
-            placeOrange.image = imageOrange_3;
             placeOrange.save();
+
+            /****** Items: ******/
+
+            // Panchita
+            Item itemPanchita_1 = new Item();
+            itemPanchita_1.name = "Cabañitas";
+            itemPanchita_1.detail = "Filetes de pollo..";
+            itemPanchita_1.price = "40";
+            itemPanchita_1.image = "panchita_cabiñitas";
+            itemPanchita_1.place = placePanchita;
+            itemPanchita_1.save();
+            Item itemPanchita_2 = new Item();
+            itemPanchita_2.name = "Burguer Snak";
+            itemPanchita_2.detail = "Tomate, lechuga..";
+            itemPanchita_2.price = "15";
+            itemPanchita_2.image = "panchita_burguer";
+            itemPanchita_2.place = placePanchita;
+            itemPanchita_2.save();
+            Item itemPanchita_3 = new Item();
+            itemPanchita_3.name = "Piernitas";
+            itemPanchita_3.detail = "Arroz, Tomate..";
+            itemPanchita_3.price = "25";
+            itemPanchita_3.image = "panchita_piernas";
+            itemPanchita_3.place = placePanchita;
+            itemPanchita_3.save();
+
+            // Mi Llajta
+            Item itemMiLlajta_1 =  new Item();
+            itemMiLlajta_1.name = "Polensa";
+            itemMiLlajta_1.detail = "Pescados a la plancha";
+            itemMiLlajta_1.price = "35";
+            itemMiLlajta_1.image = "millajta_ensalada";
+            itemMiLlajta_1.place = placeMiLlajta;
+            itemMiLlajta_1.save();
+            Item itemMiLlajta_2 =  new Item();
+            itemMiLlajta_2.name = "Fideos Yayan";
+            itemMiLlajta_2.detail = "Fideo con tomates";
+            itemMiLlajta_2.price = "25";
+            itemMiLlajta_2.image = "millajta_fideos";
+            itemMiLlajta_2.place = placeMiLlajta;
+            itemMiLlajta_2.save();
+            Item itemMiLlajta_3 =  new Item();
+            itemMiLlajta_3.name = "Pejerrey";
+            itemMiLlajta_3.detail = "Pescado con ensalada";
+            itemMiLlajta_3.price = "45";
+            itemMiLlajta_3.image = "millajta_pescado";
+            itemMiLlajta_3.place = placeMiLlajta;
+            itemMiLlajta_3.save();
+
+            // Orange
+            Item itemOrange_1 = new Item();
+            itemOrange_1.name = "Maldito";
+            itemOrange_1.detail = "Super Maldito";
+            itemOrange_1.price = "17";
+            itemOrange_1.image = "sachawasi_burguer";
+            itemOrange_1.place = placeOrange;
+            itemOrange_1.save();
+            Item itemOrange_2 = new Item();
+            itemOrange_2.name = "Churrasco mayor";
+            itemOrange_2.detail = "Pacumuto completo";
+            itemOrange_2.price = "50";
+            itemOrange_2.image = "sachawasi_carne";
+            itemOrange_2.place = placeOrange;
+            itemOrange_2.save();
+            Item itemOrange_3 = new Item();
+            itemOrange_3.name = "Plancha";
+            itemOrange_3.detail = "Plancha por pareja";
+            itemOrange_3.price = "75";
+            itemOrange_3.image = "sachawasi_planchita";
+            itemOrange_3.place = placeOrange;
+            itemOrange_3.save();
+
 
             /*Query query = new Query();
             System.out.println(query.getAllPlace(categoryRestaurant));

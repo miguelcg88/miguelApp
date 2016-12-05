@@ -1,8 +1,11 @@
 package com.miguel.angelcalderon;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,8 +19,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.miguel.angelcalderon.model.Category;
-import com.miguel.angelcalderon.model.InfoRestaurant;
+import com.miguel.angelcalderon.model.Item;
 import com.miguel.angelcalderon.model.Place;
+import com.miguel.angelcalderon.query.PlaceWrapperForBinder;
 import com.miguel.angelcalderon.query.Query;
 
 import org.androidannotations.annotations.AfterViews;
@@ -34,7 +38,7 @@ public class ListPlaces extends AppCompatActivity{
 
     PlaceAdapter placeAdapter;
     RecyclerView recyclerView;
-    ArrayList<Place> placeArrayList = null;
+    List<Place> placeArrayList;
 
     @ViewById(R.id.tb_list_places)
     Toolbar toolbar;
@@ -51,86 +55,67 @@ public class ListPlaces extends AppCompatActivity{
         });
 
         String paramObject = getIntent().getExtras().getString("paramQuery");
-        Log.d(TAG, "Selecciono : " + paramObject);
-
-        if (paramObject.equals("Boliche")) {
-            placeArrayList = new ArrayList<>();
-
-            Query getDataCategory = new Query();
-            List<Category> categories = getDataCategory.getCategory(paramObject);
-            for (int i = 0; i<=categories.size(); i++){
-                Category category = categories.get(0);
-
-                Query queryPlace = new Query();
-                placeArrayList = (ArrayList<Place>) queryPlace.getAllPlace(category);
-
-            }
-
-        } else if (paramObject.equals("Restaurante")) {
-
-            placeArrayList = new ArrayList<>();
-            Category category = new Category();
-            Query getDataCategory = new Query();
-            List<Category> categories = getDataCategory.getCategory(paramObject);
-
-            System.out.println(categories.size());
-            for (int i = 0; i<=categories.size(); i++){
-                category = categories.get(0);
-            }
-
-            Query queryPlace = new Query();
-            placeArrayList = (ArrayList<Place>) queryPlace.getAllPlace(category);
-            System.out.println(placeArrayList);
-
-        } else if (paramObject.equals("20")) {
-
-            Log.d(TAG, "Veinte");
-            placeArrayList = new ArrayList<>();
-            Query queryTwenty = new Query();
-            List<InfoRestaurant> infoRestaurants = queryTwenty.getAllPlaceTwenty(paramObject);
-
-            for (InfoRestaurant infoRestaurant: infoRestaurants) {
-                Log.d(TAG, infoRestaurant.place);
-            }
-
-        } else if (paramObject.equals("40")) {
-
-            Log.d(TAG, "Cuarenta");
-
-        } else if (paramObject.equals("60")) {
-
-            Log.d(TAG, "Sesenta");
-
-        } else if (paramObject.equals("80")) {
-
-            Log.d(TAG, "Ochenta");
-
-        } else if (paramObject.equals("Unlimited")) {
-
-            Log.d(TAG, "Unlimited");
-            placeArrayList = new ArrayList<>();
-
-            Query queryPlace = new Query();
-            placeArrayList = (ArrayList<Place>) queryPlace.getAllPlaceSort();
-            System.out.println(placeArrayList);
-
-        } else if (paramObject.equals("help-me")) {
-            Log.d(TAG, "Help Me");
-            placeArrayList = new ArrayList<>();
-
-            Query queryPlace = new Query();
-            placeArrayList = (ArrayList<Place>) queryPlace.getAllPlaceSort();
-            System.out.println(placeArrayList);
-        }
-
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_list_places);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        if (paramObject.equals("Boliche")) {
+            Log.d(TAG, "Boliche");
+            showByCategory(paramObject);
+        } else if (paramObject.equals("Restaurante")) {
+            Log.d(TAG, "Restaurante");
+            showByCategory(paramObject);
+        } else if (paramObject.equals("20")) {
+            Log.d(TAG, "Veinte");
+            showByAmount(paramObject);
+        } else if (paramObject.equals("40")) {
+            Log.d(TAG, "Cuarenta");
+            showByAmount(paramObject);
+        } else if (paramObject.equals("60")) {
+            showByAmount(paramObject);
+        } else if (paramObject.equals("80")) {
+            showByAmount(paramObject);
+        } else if (paramObject.equals("Unlimited")) {
+            Log.d(TAG, "Unlimited");
+            showRandom();
+        } else if (paramObject.equals("help-me")) {
+            Log.d(TAG, "Help Me");
+            showRandom();
+        }
+    }
+
+    private void showRandom() {
+        placeArrayList = new ArrayList<>();
+        Query queryPlace = new Query();
+        placeArrayList = queryPlace.getAllPlaceSort();
         placeAdapter = new PlaceAdapter(this, placeArrayList);
         recyclerView.setAdapter(placeAdapter);
     }
 
+    private void showByCategory(String paramObject) {
+        placeArrayList = new ArrayList<>();
+        Query getDataCategory = new Query();
+        List<Category> categories = getDataCategory.getCategory(paramObject);
+        for (int i = 0; i<=categories.size(); i++){
+            Category category = categories.get(0);
+            Query queryPlace = new Query();
+            placeArrayList = queryPlace.getAllPlace(category);
+            placeAdapter = new PlaceAdapter(this, placeArrayList);
+            recyclerView.setAdapter(placeAdapter);
+        }
+    }
+
+    private void showByAmount(String paramAmount) {
+        placeArrayList = new ArrayList<>();
+        List<Item> items = new Query().getAllPlaceByAmount(paramAmount);
+        System.out.println(placeArrayList);
+        for (Item item: items) {
+            placeArrayList.add(item.place);
+            placeAdapter = new PlaceAdapter(this, placeArrayList);
+            recyclerView.setAdapter(placeAdapter);
+        }
+    }
 
     /**
      * MARK: A Recycler View Adapter containing a simple custom.
@@ -187,7 +172,7 @@ public class ListPlaces extends AppCompatActivity{
 
             holder.imageView_Place_Icon.setImageDrawable(getDrawable(getResources().getIdentifier(place.icon, "drawable", getPackageName())));
             holder.textView_Place_Title.setText(place.name);
-            holder.textView_Place_Phone.setText(place.Phone);
+            holder.textView_Place_Phone.setText("telf: " + place.Phone);
             holder.textView_Place_Address.setText(place.address);
 
             holder.imageView_Place_Facebook.setOnClickListener(new View.OnClickListener() {
@@ -205,10 +190,13 @@ public class ListPlaces extends AppCompatActivity{
             });
 
             holder.cardView_Place.setOnClickListener(new View.OnClickListener() {
+                @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
                 @Override
                 public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putBinder("place", new PlaceWrapperForBinder(place));
                     Intent intent = new Intent(getApplicationContext(), MoreInfo_.class);
-                    intent.putExtra("paramQueryPlace", place.name);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
             });
