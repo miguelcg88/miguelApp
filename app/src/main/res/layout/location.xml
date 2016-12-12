@@ -25,11 +25,14 @@
 
     <RelativeLayout
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:padding="@dimen/padding_activity"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@drawable/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </RelativeLayout>
 

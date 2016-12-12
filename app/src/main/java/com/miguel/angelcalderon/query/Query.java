@@ -47,4 +47,11 @@ public class Query {
                 .execute();
     }
 
+    public Place getPlaceRandom() {
+        return new Select()
+                .from(Place.class)
+                .orderBy("RANDOM()")
+                .executeSingle();
+    }
+
 }

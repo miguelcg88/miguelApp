@@ -66,7 +66,7 @@ public class MoreInfo extends AppCompatActivity {
 
         assert ((PlaceWrapperForBinder) getIntent().getExtras().getBinder("place")) != null;
         place = ((PlaceWrapperForBinder) getIntent().getExtras().getBinder("place")).getPlace();
-        String paramGetId = getIntent().getStringExtra("paramQueryPlace");
+        //String paramGetId = getIntent().getStringExtra("paramQueryPlace");
 
         textViewName.setText(place.name);
         textViewPhone.setText(place.Phone);

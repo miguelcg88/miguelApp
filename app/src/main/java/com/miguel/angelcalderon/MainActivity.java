@@ -1,9 +1,16 @@
 package com.miguel.angelcalderon;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+
+import com.miguel.angelcalderon.model.Place;
+import com.miguel.angelcalderon.query.PlaceWrapperForBinder;
+import com.miguel.angelcalderon.query.Query;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -43,11 +50,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, Take_.class));
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Click
     void fab_menu_help_me() {
         Log.d(TAG, "Btn pressed ListPlacesActivity");
-        Intent intent = new Intent(this, ListPlaces_.class);
-        intent.putExtra("paramQuery", "help-me");
+        Bundle bundle = new Bundle();
+        Place place = new Query().getPlaceRandom();
+        bundle.putBinder("place", new PlaceWrapperForBinder(place));
+        Intent intent = new Intent(this, MoreInfo_.class);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 }
