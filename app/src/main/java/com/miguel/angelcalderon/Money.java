@@ -29,29 +29,29 @@ public class Money extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Click
+    /*@Click
     void btn_price_forty() {
         Log.d(TAG, "Btn pressed 40");
         Intent intent = new Intent(this, ListPlaces_.class);
         intent.putExtra("paramQuery", "40");
         startActivity(intent);
-    }
-
+    } */
+    /* revisar query */
     @Click
-    void btn_price_sixty() {
-        Log.d(TAG, "Btn pressed 60");
+    void btn_price_fifty() {
+        Log.d(TAG, "Btn pressed 50");
         Intent intent = new Intent(this, ListPlaces_.class);
         intent.putExtra("paramQuery", "60");
         startActivity(intent);
     }
-
+    /*
     @Click
     void btn_price_eighty() {
         Log.d(TAG, "Btn pressed 80");
         Intent intent = new Intent(this, ListPlaces_.class);
         intent.putExtra("paramQuery", "80");
         startActivity(intent);
-    }
+    } */
 
     @Click
     void btn_unlimited_price() {

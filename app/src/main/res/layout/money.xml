@@ -10,7 +10,6 @@
     <android.support.design.widget.AppBarLayout
         android:theme="@style/AppTheme.AppBarOverlay"
         android:paddingTop="@dimen/padding_app_bar_top"
-        android:background="#DA5E60"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -28,95 +27,38 @@
     <LinearLayout
         android:orientation="vertical"
         android:padding="@dimen/padding_activity"
-        android:background="@drawable/bg_money"
+        android:background="@drawable/cuanto_dinero_fondo"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_weight="1"
-            android:id="@+id/ll_row_1"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:padding="8dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/btn_price_twenty"
-                    android:src="@drawable/option_twenty"
-                    android:clickable="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:padding="8dp"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/btn_price_forty"
-                    android:src="@drawable/option_fourty"
-                    android:clickable="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:id="@+id/ll_row_2"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:padding="8dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/btn_price_sixty"
-                    android:src="@drawable/option_sixty"
-                    android:clickable="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:padding="8dp"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/btn_price_eighty"
-                    android:src="@drawable/option_eighty"
-                    android:clickable="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </LinearLayout>
-
-        </LinearLayout>
 
         <LinearLayout
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/btn_price_twenty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#55000000"
+                android:clickable="true"
+                android:text="@string/text_message_20"
+                android:textColor="#FAFAFA"
+                android:textSize="@dimen/title_main" />
+
+            <Button
+                android:id="@+id/btn_price_fifty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#55000000"
+                android:clickable="true"
+                android:text="@string/text_message_50"
+                android:textColor="#FAFAFA"
+                android:textSize="@dimen/title_main" />
 
             <Button
                 android:id="@+id/btn_unlimited_price"
@@ -130,6 +72,6 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+        </LinearLayout>
 
-</LinearLayout>
+    </LinearLayout>
