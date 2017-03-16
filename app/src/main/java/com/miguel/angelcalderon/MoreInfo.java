@@ -1,6 +1,8 @@
 package com.miguel.angelcalderon;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,9 +19,11 @@ import com.miguel.angelcalderon.query.PlaceWrapperForBinder;
 import com.miguel.angelcalderon.query.Query;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -32,8 +36,8 @@ public class MoreInfo extends AppCompatActivity {
     @ViewById(R.id.tb_more_info)
     Toolbar toolbar;
 
-    @ViewById(R.id.tv_more_info_name)
-    TextView textViewName;
+    /*@ViewById(R.id.tv_more_info_name)
+    TextView textViewName;*/
 
     @ViewById(R.id.tv_more_info_phone)
     TextView textViewPhone;
@@ -47,8 +51,26 @@ public class MoreInfo extends AppCompatActivity {
     @ViewById(R.id.tv_more_info_schedule_hours)
     TextView textViewSchedule_hours;
 
-    @ViewById(R.id.tv_more_info_web)
-    TextView textViewWeb;
+   /* @ViewById(R.id.tv_more_info_web)
+    TextView textViewWeb;*/
+
+    @ViewById(R.id.txtMoreProd1)
+    TextView txtMoreProd1;
+
+    @ViewById(R.id.txtMoreProd2)
+    TextView txtMoreProd2;
+
+    @ViewById(R.id.txtMoreProd3)
+    TextView txtMoreProd3;
+
+    @ViewById(R.id.txtProd1Price)
+    TextView txtProd1Price;
+
+    @ViewById(R.id.txtProd2Price)
+    TextView txtProd2Price;
+
+    @ViewById(R.id.txtProd3Price)
+    TextView txtProd3Price;
 
     Place place;
 
@@ -68,18 +90,18 @@ public class MoreInfo extends AppCompatActivity {
         place = ((PlaceWrapperForBinder) getIntent().getExtras().getBinder("place")).getPlace();
         //String paramGetId = getIntent().getStringExtra("paramQueryPlace");
 
-        textViewName.setText(place.name);
+        setTitle(place.name);
+        //textViewName.setText(place.name);
         textViewPhone.setText(place.Phone);
         textViewAddress.setText(place.address);
         textViewSchedule_day.setText(place.schedule_day);
         textViewSchedule_hours.setText(place.schedule_hour);
-        textViewWeb.setText(place.web);
+      //  textViewWeb.setText(place.web);
 
         Query queryImage = new Query();
         List<Item> itemList = queryImage.getAllItemByPlace(place);
 
         HashMap<String, Integer> url_maps = new HashMap<>();
-
         for (Item item : itemList) {
 
             System.out.println(item.image);
@@ -103,7 +125,38 @@ public class MoreInfo extends AppCompatActivity {
         sliderLayout.setCustomAnimation(new DescriptionAnimation());
         sliderLayout.setDuration(5000);
 
+        if (place.category.name.equals(App.STATIC_CLUB)) {
+            txtMoreProd1.setText(place.activity1);
+            txtMoreProd2.setText(place.activity2);
+            txtMoreProd3.setText(place.activity3);
+            txtProd1Price.setVisibility(View.GONE);
+            txtProd2Price.setVisibility(View.GONE);
+            txtProd3Price.setVisibility(View.GONE);
+        } else {
+            txtMoreProd1.setText(itemList.get(0).name);
+            txtMoreProd2.setText(itemList.get(1).name);
+            txtMoreProd3.setText(itemList.get(2).name);
+            txtProd1Price.setText(itemList.get(0).price + " Bs");
+            txtProd1Price.setText(itemList.get(1).price + " Bs");
+            txtProd1Price.setText(itemList.get(2).price + " Bs");
+        }
+
     }
 
+    @Click
+    void imgBtnUrl() {
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(place.web));
+        startActivity(browserIntent);
+    }
 
+    @Click
+    void imgBtnFacebook() {
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(place.facebook));
+        startActivity(browserIntent);
+    }
+    @Click
+    void imgBtnLocation() {
+        /*Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(place.web));
+        startActivity(browserIntent);*/
+    }
 }

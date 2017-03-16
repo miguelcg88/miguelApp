@@ -57,7 +57,8 @@
                 android:padding="@dimen/padding_card_place_actions"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/iv_icon_place_facebook"

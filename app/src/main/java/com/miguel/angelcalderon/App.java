@@ -13,8 +13,8 @@ import com.miguel.angelcalderon.query.DefaultData;
 
 public class App extends Application {
 
-    String STATIC_CLUB = "Boliche";
-    String STATIC_RESTAURANT = "Restaurante";
+    public static final String STATIC_CLUB = "Boliche";
+    public static final String STATIC_RESTAURANT = "Restaurante";
 
     @Override
     public void onCreate() {
@@ -74,6 +74,9 @@ public class App extends Application {
             placeOrange.web = "https://www.sachawasi.com.bo";
             placeOrange.schedule_day = "Viernes - Sabados - Domingos";
             placeOrange.schedule_hour = "19:00 - 23:00 pm";
+            placeOrange.activity1 = "Clasicos de los 80s";
+            placeOrange.activity2 = "Cover 50 Bs";
+            placeOrange.activity3 = "Mojitos 2x1 a 30 Bs";
             placeOrange.category = categoryClub;
             placeOrange.save();
 

@@ -34,6 +34,15 @@ public class Place extends Model {
     @Column(name = "Categories")
     public Category category;
 
+    @Column(name = "Activity1")
+    public String activity1;
+
+    @Column(name = "Activity2")
+    public String activity2;
+
+    @Column(name = "Activity3")
+    public String activity3;
+
     public Place() {}
 
 
