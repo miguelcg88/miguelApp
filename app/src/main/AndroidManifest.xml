@@ -68,6 +68,10 @@
             android:label="@string/menu_item_more_info"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".Map"
+            android:label="@string/menu_item_place"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

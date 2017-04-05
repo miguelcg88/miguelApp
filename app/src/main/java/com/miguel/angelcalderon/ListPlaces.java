@@ -170,7 +170,7 @@ public class ListPlaces extends AppCompatActivity{
         public void onBindViewHolder(CustomViewHolder holder, final int position) {
             final Place place = listPlaces.get(position);
 
-            holder.imageView_Place_Icon.setImageDrawable(getDrawable(getResources().getIdentifier(place.icon, "drawable", getPackageName())));
+            holder.imageView_Place_Icon.setImageDrawable(getResources().getDrawable(getResources().getIdentifier(place.icon, "drawable", getPackageName())));
             holder.textView_Place_Title.setText(place.name);
             holder.textView_Place_Phone.setText("telf: " + place.Phone);
             holder.textView_Place_Address.setText(place.address);

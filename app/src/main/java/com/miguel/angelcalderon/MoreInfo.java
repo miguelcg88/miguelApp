@@ -133,12 +133,14 @@ public class MoreInfo extends AppCompatActivity {
             txtProd2Price.setVisibility(View.GONE);
             txtProd3Price.setVisibility(View.GONE);
         } else {
-            txtMoreProd1.setText(itemList.get(0).name);
-            txtMoreProd2.setText(itemList.get(1).name);
-            txtMoreProd3.setText(itemList.get(2).name);
-            txtProd1Price.setText(itemList.get(0).price + " Bs");
-            txtProd1Price.setText(itemList.get(1).price + " Bs");
-            txtProd1Price.setText(itemList.get(2).price + " Bs");
+            if (itemList.size() > 0) {
+                txtMoreProd1.setText(itemList.get(0).name);
+                txtMoreProd2.setText(itemList.get(1).name);
+                txtMoreProd3.setText(itemList.get(2).name);
+                txtProd1Price.setText(itemList.get(0).price + " Bs");
+                txtProd2Price.setText(itemList.get(1).price + " Bs");
+                txtProd3Price.setText(itemList.get(2).price + " Bs");
+            }
         }
 
     }
@@ -156,7 +158,10 @@ public class MoreInfo extends AppCompatActivity {
     }
     @Click
     void imgBtnLocation() {
-        /*Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(place.web));
-        startActivity(browserIntent);*/
+        Intent browserIntent= new Intent(this, Map.class);
+        List<Place> places = new ArrayList<>();
+        places.add(place);
+        ((App) getApplicationContext()).setListPlaces(places);
+        startActivity(browserIntent);
     }
 }

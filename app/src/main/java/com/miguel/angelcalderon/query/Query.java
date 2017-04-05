@@ -17,6 +17,14 @@ public class Query {
                 .execute();
     }
 
+    public List<Place> getAllPlace() {
+        return new Select()
+                .from(Place.class)
+                .orderBy("RANDOM()")
+                .execute();
+    }
+
+
     public List<Category> getCategory(String name) {
         return new Select()
                 .from(Category.class)

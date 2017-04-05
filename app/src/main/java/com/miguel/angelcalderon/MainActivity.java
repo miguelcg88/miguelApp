@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.miguel.angelcalderon.model.Category;
 import com.miguel.angelcalderon.model.Place;
 import com.miguel.angelcalderon.query.PlaceWrapperForBinder;
 import com.miguel.angelcalderon.query.Query;
@@ -41,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
     @Click
     void fab_menu_location() {
         Log.d(TAG, "Btn pressed LocationActivity");
-        startActivity(new Intent(this, Location_.class));
+        Query queryPlace = new Query();
+        ((App)getApplicationContext()).setListPlaces(queryPlace.getAllPlace());
+        startActivity(new Intent(this, Map.class));
     }
 
     @Click

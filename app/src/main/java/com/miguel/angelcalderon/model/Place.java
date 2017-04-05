@@ -4,8 +4,12 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
+import org.mapsforge.core.graphics.Bitmap;
+
+import java.io.Serializable;
+
 @Table(name = "Places")
-public class Place extends Model {
+public class Place extends Model implements Serializable {
 
     @Column(name = "Icon")
     public String icon;
@@ -43,10 +47,14 @@ public class Place extends Model {
     @Column(name = "Activity3")
     public String activity3;
 
+    @Column(name = "Latitud")
+    public float latitud;
+
+    @Column(name = "Longitud")
+    public float longitud;
+
+    @Column(name = "icon_marker")
+    public String icon_marker;
+
     public Place() {}
-
-
-
-
-
 }

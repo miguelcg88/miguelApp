@@ -104,7 +104,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/padding_app_bar_top"
                         android:paddingRight="@dimen/padding_app_bar_top"
-                        android:text="23 Bs" />
+                        android:text="-- Bs" />
 
                 </LinearLayout>
 
@@ -137,7 +137,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/padding_app_bar_top"
                         android:paddingRight="@dimen/padding_app_bar_top"
-                        android:text="23 Bs" />
+                        android:text="-- Bs" />
 
                 </LinearLayout>
 
@@ -170,7 +170,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/padding_app_bar_top"
                         android:paddingRight="@dimen/padding_app_bar_top"
-                        android:text="23 Bs" />
+                        android:text="-- Bs" />
 
                 </LinearLayout>
 

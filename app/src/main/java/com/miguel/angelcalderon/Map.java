@@ -1,12 +1,17 @@
 package com.miguel.angelcalderon;
 
 import android.app.Activity;
-import android.content.res.AssetManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
+import android.widget.Toast;
+
+import com.miguel.angelcalderon.model.Place;
+import com.miguel.angelcalderon.query.PlaceWrapperForBinder;
 
 import org.mapsforge.core.graphics.Bitmap;
 import org.mapsforge.core.model.LatLong;
+import org.mapsforge.core.model.Point;
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory;
 import org.mapsforge.map.android.util.AndroidUtil;
 import org.mapsforge.map.android.view.MapView;
@@ -22,11 +27,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 
 public class Map extends Activity {
     private static final String LIST_PLACES = "places";
 
     private MapView mapView;
+    private List<Place> mPlaces;
+    private LatLong centerLocation = new LatLong(-17.392523, -66.158852);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +67,15 @@ public class Map extends Activity {
 
         // only once a layer is associated with a mapView the rendering starts
         this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
-
-        this.mapView.setCenter(new LatLong(-17.392523, -66.158852));
+        mPlaces = getPlaces();
+        if (mPlaces.size() == 1) {
+            centerLocation = new LatLong(mPlaces.get(0).latitud, mPlaces.get(0).longitud);
+        }
+        this.mapView.setCenter(centerLocation);
         this.mapView.setZoomLevel((byte) 14);
-        createPositionMarker(-17.392523, -66.158852);
+        for (Place place: mPlaces) {
+            createPositionMarker(place);
+        }
 
     }
 
@@ -97,20 +110,70 @@ public class Map extends Activity {
         return null;
     }
 
-    private void createPositionMarker(double paramDouble1, double paramDouble2) {
-
-        final LatLong localLatLong = new LatLong(paramDouble1, paramDouble2);
-        TappableMarker positionmarker = new TappableMarker(localLatLong, AndroidGraphicFactory.convertToBitmap(Map.this.getApplicationContext().getResources().getDrawable(R.drawable.marker_green)));
+    public List<Place> getPlaces() {
+        return ((App) getApplicationContext()).getListPlaces();
+    }
+    private void createPositionMarker(Place place) {
+        TappableMarker positionmarker = new TappableMarker(this, place, AndroidGraphicFactory.convertToBitmap(getResources().getDrawable(getResources().
+                getIdentifier(place.icon_marker, "drawable", getPackageName()))));
         mapView.getLayerManager().
                 getLayers().
                 add(positionmarker);
-        positionmarker.requestRedraw();
+        positionmarker.setOnMakerTap(new OnMarkerTapListener() {
+            @Override
+            public void onClick(Place place) {
+                Toast.makeText(Map.this, place.name, Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putBinder("place", new PlaceWrapperForBinder(place));
+                Intent intent = new Intent(getApplicationContext(), MoreInfo_.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+        //positionmarker.requestRedraw();
+
     }
 
     class TappableMarker extends Marker {
-        public TappableMarker(LatLong localLatLong, Bitmap mark) {
-            super(localLatLong,mark ,0, -mark.getHeight()/2);
 
+        Context cntx;
+        OnMarkerTapListener mListener;
+        Place mPlace;
+
+        public TappableMarker(Context cntx, Place place, Bitmap mark) {
+            super(new LatLong(place.latitud, place.longitud),mark ,0 , -mark.getHeight()/2);
+            this.cntx = cntx;
+            this.mPlace = place;
         }
+
+        @Override
+        public boolean onTap(LatLong tapLatLong, Point layerXY, Point tapXY) {
+
+            double centerX = layerXY.x + getHorizontalOffset();
+            double centerY = layerXY.y + getVerticalOffset();
+
+            double radiusX = (getBitmap().getWidth() / 2) *1.1;
+            double radiusY = (getBitmap().getHeight() / 2) *1.1;
+
+            double distX = Math.abs(centerX - tapXY.x);
+            double distY = Math.abs(centerY - tapXY.y);
+
+
+            if( distX < radiusX && distY < radiusY){
+                if (mListener != null) {
+                    mListener.onClick(mPlace);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void setOnMakerTap(OnMarkerTapListener listener) {
+            this.mListener = listener;
+        }
+    }
+
+    interface OnMarkerTapListener {
+        void onClick(Place place);
     }
 }
