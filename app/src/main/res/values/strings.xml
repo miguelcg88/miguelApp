@@ -12,6 +12,7 @@
     <string name="menu_item_place">Encontrar lugares?</string>
     <string name="menu_item_more_info">Mas información</string>
     <string name="text_message_unlimited">Sin limite de precio!</string>
+    <string name="text_message_upper_100">Mas de 100 Bs!</string>
     <string name="text_message_20">Tengo 20 Bs!</string>
     <string name="text_message_50">Tengo 50 Bs!</string>
     <string name="title_place">Titulo de Lugar</string>

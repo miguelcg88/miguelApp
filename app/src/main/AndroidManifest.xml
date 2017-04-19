@@ -29,9 +29,9 @@
             android:value="com.miguel.angelcalderon.model.Category, com.miguel.angelcalderon.model.Place, com.miguel.angelcalderon.model.Item, com.miguel.angelcalderon.query.DefaultData"/>
 
         <activity
-            android:name=".SplashScreen_"
+            android:name=".MainActivity_"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,7 +40,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity_"
+            android:name=".SplashScreen_"
             android:screenOrientation="portrait">
         </activity>
 

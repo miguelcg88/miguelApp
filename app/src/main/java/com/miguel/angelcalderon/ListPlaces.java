@@ -68,17 +68,19 @@ public class ListPlaces extends AppCompatActivity{
             showByCategory(paramObject);
         } else if (paramObject.equals("20")) {
             Log.d(TAG, "Veinte");
-            showByAmount(paramObject);
+            showByAmount(paramObject, false);
         } else if (paramObject.equals("40")) {
             Log.d(TAG, "Cuarenta");
-            showByAmount(paramObject);
-        } else if (paramObject.equals("60")) {
-            showByAmount(paramObject);
+            showByAmount(paramObject, false);
+        } else if (paramObject.equals("50")) {
+            showByAmount(paramObject, false);
         } else if (paramObject.equals("80")) {
-            showByAmount(paramObject);
+            showByAmount(paramObject, false);
         } else if (paramObject.equals("Unlimited")) {
             Log.d(TAG, "Unlimited");
-            showRandom();
+            showByAmount("" + Integer.MAX_VALUE, false);
+        } else if (paramObject.equals(">100")) {
+            showByAmount("100", true);
         } else if (paramObject.equals("help-me")) {
             Log.d(TAG, "Help Me");
             showRandom();
@@ -106,9 +108,10 @@ public class ListPlaces extends AppCompatActivity{
         }
     }
 
-    private void showByAmount(String paramAmount) {
+    private void showByAmount(String paramAmount, boolean upper) {
         placeArrayList = new ArrayList<>();
-        List<Item> items = new Query().getAllPlaceByAmount(paramAmount);
+        List<Item> items = upper ? new Query().getAllPlaceByAmountUp(paramAmount)
+                : new Query().getAllPlaceByAmount(paramAmount);
         System.out.println(placeArrayList);
         for (Item item: items) {
             placeArrayList.add(item.place);

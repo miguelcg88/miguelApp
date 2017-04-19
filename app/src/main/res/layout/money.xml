@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.miguel.angelcalderon.Money_">
 
     <android.support.design.widget.AppBarLayout
         android:theme="@style/AppTheme.AppBarOverlay"
@@ -25,6 +26,7 @@
 
     <!--"-->
     <LinearLayout
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:orientation="vertical"
         android:padding="@dimen/padding_activity"
         android:background="@drawable/cuanto_dinero_fondo"
@@ -66,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:background="#55000000"
                 android:clickable="true"
-                android:text="@string/text_message_unlimited"
+                android:text="@string/text_message_upper_100"
                 android:textColor="#FAFAFA"
                 android:textSize="@dimen/title_main" />
 
@@ -74,4 +76,4 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>

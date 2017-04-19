@@ -17,7 +17,7 @@ public class Item extends Model implements Serializable{
     public String detail;
 
     @Column(name = "Price")
-    public String price;
+    public Integer price;
 
     @Column(name = "Image")
     public String image;

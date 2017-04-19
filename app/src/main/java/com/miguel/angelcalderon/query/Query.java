@@ -48,6 +48,14 @@ public class Query {
                 .execute();
     }
 
+    public List<Item> getAllPlaceByAmountUp(String amount) {
+        return new Select()
+                .from(Item.class)
+                .where("Price >=?", amount)
+                .groupBy("Places")
+                .execute();
+    }
+
     public List<Item> getAllItemByPlace(Place place) {
         return new Select()
                 .from(Item.class)

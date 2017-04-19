@@ -12,7 +12,6 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Fullscreen;
 import org.androidannotations.annotations.ViewById;
 
-@Fullscreen
 @EActivity(R.layout.money)
 public class Money extends AppCompatActivity {
 
@@ -41,7 +40,7 @@ public class Money extends AppCompatActivity {
     void btn_price_fifty() {
         Log.d(TAG, "Btn pressed 50");
         Intent intent = new Intent(this, ListPlaces_.class);
-        intent.putExtra("paramQuery", "60");
+        intent.putExtra("paramQuery", "50");
         startActivity(intent);
     }
     /*
@@ -57,7 +56,7 @@ public class Money extends AppCompatActivity {
     void btn_unlimited_price() {
         Log.d(TAG, "Btn pressed Unlimited");
         Intent intent = new Intent(this, ListPlaces_.class);
-        intent.putExtra("paramQuery", "Unlimited");
+        intent.putExtra("paramQuery", ">100");
         startActivity(intent);
     }
 

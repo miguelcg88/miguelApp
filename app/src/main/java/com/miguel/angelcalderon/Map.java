@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.Toast;
 
 import com.miguel.angelcalderon.model.Place;
@@ -29,12 +32,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
-public class Map extends Activity {
+public class Map extends AppCompatActivity {
     private static final String LIST_PLACES = "places";
 
     private MapView mapView;
+    private Toolbar toolbar;
     private List<Place> mPlaces;
-    private LatLong centerLocation = new LatLong(-17.392523, -66.158852);
+    private LatLong centerLocation = new LatLong(-17.3823, -66.1604);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +46,25 @@ public class Map extends Activity {
 
         AndroidGraphicFactory.createInstance(this.getApplication());
 
-        this.mapView = new MapView(this);
-        setContentView(this.mapView);
 
+        setContentView(R.layout.map);
+        this.mapView = (MapView) findViewById(R.id.mapView);
+        this.toolbar = (Toolbar) findViewById(R.id.tb_map);
         this.mapView.setClickable(true);
         this.mapView.getMapScaleBar().setVisible(true);
         this.mapView.setBuiltInZoomControls(true);
         this.mapView.setZoomLevelMin((byte) 14);
         this.mapView.setZoomLevelMax((byte) 19);
+
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        setTitle("Mapa");
 
         // create a tile cache of suitable size
         TileCache tileCache = AndroidUtil.createTileCache(this, "mapcache",
@@ -76,7 +91,6 @@ public class Map extends Activity {
         for (Place place: mPlaces) {
             createPositionMarker(place);
         }
-
     }
 
     @Override
@@ -131,7 +145,6 @@ public class Map extends Activity {
             }
         });
         //positionmarker.requestRedraw();
-
     }
 
     class TappableMarker extends Marker {

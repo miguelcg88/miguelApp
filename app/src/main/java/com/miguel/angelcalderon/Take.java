@@ -11,7 +11,6 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Fullscreen;
 import org.androidannotations.annotations.ViewById;
 
-@Fullscreen
 @EActivity(R.layout.take)
 public class Take extends AppCompatActivity {
 
