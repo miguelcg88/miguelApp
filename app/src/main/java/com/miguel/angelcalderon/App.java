@@ -652,7 +652,7 @@ public class App extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        MultiDex.install(this);
+       // MultiDex.install(this);
     }
 
     public List<Place> getListPlaces() {

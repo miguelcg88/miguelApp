@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_main"
-    tools:context="com.miguel.angelcalderon.MainActivity_">
+    tools:context="com.miguel.angelcalderon.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,251 +21,118 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_gravity="top"
+        android:background="@color/transparent_50"
+        android:orientation="vertical"
+        android:paddingTop="80dp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:orientation="vertical"
-            android:paddingEnd="56dp"
-            android:paddingStart="56dp">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingBottom="128dp"
-                android:text="BIENVENIDO"
-                android:textColor="@android:color/white"
-                android:textSize="24sp" />
-
-            <Button
-                android:id="@+id/btnMenuMake"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/btn_oval"
-                android:elevation="9dp"
-                android:paddingEnd="10dp"
-                android:paddingStart="10dp"
-                android:text="@string/menu_item_make" />
-
-            <Button
-                android:id="@+id/btnMenuMoney"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/btn_oval"
-                android:elevation="8dp"
-                android:paddingEnd="10dp"
-                android:paddingStart="10dp"
-                android:text="@string/menu_item_money" />
-
-            <Button
-                android:id="@+id/btnMenuLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/btn_oval"
-                android:elevation="8dp"
-                android:paddingEnd="10dp"
-                android:paddingStart="10dp"
-                android:text="@string/menu_item_place" />
-
-            <Button
-                android:id="@+id/btnMenuHelpMe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginBottom="32dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/btn_oval"
-                android:elevation="8dp"
-                android:paddingEnd="10dp"
-                android:paddingStart="10dp"
-                android:text="@string/menu_item_help_me" />
-        </LinearLayout>
+            android:background="@android:color/transparent"
+            android:gravity="bottom|center_horizontal"
+            android:text="Bienvenido"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="32sp" />
 
         <LinearLayout
-            android:id="@+id/lyOptions"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            android:orientation="vertical"
-            android:visibility="gone"
-            tools:context="com.miguel.angelcalderon.MainActivity_">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/fab_menu_make"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#885F7F"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="com.androxp.randika.main.MainActivity">
 
-                <LinearLayout
+                <Button
+                    android:id="@+id/btnMenuMake"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
                     android:layout_weight="1"
-                    android:gravity="center|bottom">
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="8dp"
+                    android:drawableTint="@android:color/white"
+                    android:drawableTop="@drawable/ic_que_hacer"
+                    android:padding="16dp"
+                    android:text="Que quieres hacer?"
+                    android:textColor="@color/white" />
 
-                    <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:src="@drawable/heart" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <Button
+                    android:id="@+id/btnMenuMoney"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
                     android:layout_weight="1"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/menu_item_make"
-                        android:textColor="@android:color/white"
-                        android:textSize="27sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="8dp"
+                    android:drawableTint="@android:color/white"
+                    android:drawableTop="@drawable/ic_dinero"
+                    android:padding="16dp"
+                    android:text="Cuanto tengo?"
+                    android:textColor="@android:color/white" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/fab_menu_money"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#DA5E60"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="com.androxp.randika.main.MainActivity">
 
-                <LinearLayout
+                <Button
+                    android:id="@+id/btnMenuHelpMe"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:layout_weight="1"
-                    android:gravity="center|bottom">
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="8dp"
+                    android:drawableTint="@color/white"
+                    android:drawableTop="@drawable/ic_sorprendeme"
+                    android:padding="16dp"
+                    android:text="Sorprendeme!"
+                    android:textColor="@android:color/white" />
 
-                    <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:src="@drawable/coin" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <Button
+                    android:id="@+id/btnMenuLocation"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_weight="1"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/menu_item_money"
-                        android:textColor="@android:color/white"
-                        android:textSize="27sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/fab_menu_location"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#13B0A5"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center|bottom">
-
-                    <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:src="@drawable/bullhorn" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/menu_item_place"
-                        android:textColor="@android:color/white"
-                        android:textSize="27sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/fab_menu_help_me"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="#D0C490"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center|bottom">
-
-                    <ImageView
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:src="@drawable/avatar" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/menu_item_help_me"
-                        android:textColor="@android:color/white"
-                        android:textSize="27sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="8dp"
+                    android:drawableTint="@android:color/white"
+                    android:drawableTop="@drawable/ic_encontrar_lugares_svg"
+                    android:padding="16dp"
+                    android:text="Encontrar lugares"
+                    android:textColor="@android:color/white" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </FrameLayout>
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
