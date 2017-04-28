@@ -45,13 +45,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="32dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
+                android:gravity="bottom|center_horizontal"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 tools:context="com.androxp.randika.main.MainActivity">
 
@@ -93,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_vertical"
+                android:gravity="top|center_horizontal"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 tools:context="com.androxp.randika.main.MainActivity">
 

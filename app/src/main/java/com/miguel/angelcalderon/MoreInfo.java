@@ -7,6 +7,8 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
@@ -72,6 +74,23 @@ public class MoreInfo extends AppCompatActivity {
     @ViewById(R.id.txtProd3Price)
     TextView txtProd3Price;
 
+    @ViewById(R.id.imgOption1)
+    ImageView imgOption1;
+
+    @ViewById(R.id.imgOption2)
+    ImageView imgOption2;
+
+    @ViewById(R.id.imgOption3)
+    ImageView imgOption3;
+
+    @ViewById(R.id.imgBtnUrl)
+    ImageButton imgBtnUrl;
+
+    @ViewById(R.id.imgBtnFacebook)
+    ImageButton imgBtnFacebook;
+
+    @ViewById(R.id.imgBtnLocation)
+    ImageButton imgBtnLocation;
     Place place;
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
@@ -125,6 +144,11 @@ public class MoreInfo extends AppCompatActivity {
         sliderLayout.setCustomAnimation(new DescriptionAnimation());
         sliderLayout.setDuration(5000);
 
+
+        imgBtnFacebook.setImageResource(R.drawable.ic_facebook1);
+        imgBtnLocation.setImageResource(R.drawable.ic_location1);
+        imgBtnUrl.setImageResource(R.drawable.ic_earth1);
+
         if (place.category.name.equals(App.STATIC_CLUB)) {
             txtMoreProd1.setText(place.activity1);
             txtMoreProd2.setText(place.activity2);
@@ -132,6 +156,9 @@ public class MoreInfo extends AppCompatActivity {
             txtProd1Price.setVisibility(View.GONE);
             txtProd2Price.setVisibility(View.GONE);
             txtProd3Price.setVisibility(View.GONE);
+            imgOption1.setImageResource(R.drawable.ic_champagne1);
+            imgOption2.setImageResource(R.drawable.ic_champagne1);
+            imgOption3.setImageResource(R.drawable.ic_champagne1);
         } else {
             if (itemList.size() > 0) {
                 txtMoreProd1.setText(itemList.get(0).name);
@@ -140,6 +167,9 @@ public class MoreInfo extends AppCompatActivity {
                 txtProd1Price.setText(itemList.get(0).price + " Bs");
                 txtProd2Price.setText(itemList.get(1).price + " Bs");
                 txtProd3Price.setText(itemList.get(2).price + " Bs");
+                imgOption1.setImageResource(R.drawable.ic_dishes1);
+                imgOption2.setImageResource(R.drawable.ic_dishes1);
+                imgOption3.setImageResource(R.drawable.ic_dishes1);
             }
         }
 
