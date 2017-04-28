@@ -24,6 +24,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         ActiveAndroid.initialize(this);
+        
 
         DefaultData defaultData = new DefaultData();
         System.out.println(defaultData.defaultDatas().size());
