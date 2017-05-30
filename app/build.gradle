@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 def AAVersion = '3.2'
-def ALVersion = '23.1.1'
+def ALVersion = '23.4.0'
 
 android {
     compileSdkVersion 23
@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.miguel.angelcalderon"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -27,6 +27,7 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
+    compile 'com.android.support:support-v4:23.4.0'
     compile "com.android.support:appcompat-v7:$ALVersion"
     compile "com.android.support:design:$ALVersion"
     // Library for RecyclerView and Cards

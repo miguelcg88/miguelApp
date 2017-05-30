@@ -38,9 +38,6 @@ public class MoreInfo extends AppCompatActivity {
     @ViewById(R.id.tb_more_info)
     Toolbar toolbar;
 
-    /*@ViewById(R.id.tv_more_info_name)
-    TextView textViewName;*/
-
     @ViewById(R.id.tv_more_info_phone)
     TextView textViewPhone;
 
@@ -188,10 +185,11 @@ public class MoreInfo extends AppCompatActivity {
     }
     @Click
     void imgBtnLocation() {
-        Intent browserIntent= new Intent(this, Map.class);
-        List<Place> places = new ArrayList<>();
-        places.add(place);
-        ((App) getApplicationContext()).setListPlaces(places);
-        startActivity(browserIntent);
+        Uri intentUri = Uri.parse("geo:0,0?q=" + place.latitud + ","+ place.longitud + "(" + place.name + ")");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, intentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        if(mapIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(mapIntent);
+        }
     }
 }

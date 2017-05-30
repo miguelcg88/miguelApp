@@ -40,11 +40,6 @@
         </activity>
 
         <activity
-            android:name=".SplashScreen_"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity
             android:name=".Money_"
             android:label="@string/menu_item_money"
             android:screenOrientation="portrait" />
