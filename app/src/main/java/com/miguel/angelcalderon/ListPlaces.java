@@ -69,30 +69,11 @@ public class ListPlaces extends AppCompatActivity{
         } else if (paramObject.equals("20")) {
             Log.d(TAG, "Veinte");
             showByAmount(paramObject, false);
-        } else if (paramObject.equals("40")) {
-            Log.d(TAG, "Cuarenta");
-            showByAmount(paramObject, false);
         } else if (paramObject.equals("50")) {
             showByAmount(paramObject, false);
-        } else if (paramObject.equals("80")) {
-            showByAmount(paramObject, false);
-        } else if (paramObject.equals("Unlimited")) {
-            Log.d(TAG, "Unlimited");
-            showByAmount("" + Integer.MAX_VALUE, false);
         } else if (paramObject.equals(">100")) {
             showByAmount("100", true);
-        } else if (paramObject.equals("help-me")) {
-            Log.d(TAG, "Help Me");
-            showRandom();
         }
-    }
-
-    private void showRandom() {
-        placeArrayList = new ArrayList<>();
-        Query queryPlace = new Query();
-        placeArrayList = queryPlace.getAllPlaceSort();
-        placeAdapter = new PlaceAdapter(this, placeArrayList);
-        recyclerView.setAdapter(placeAdapter);
     }
 
     private void showByCategory(String paramObject) {

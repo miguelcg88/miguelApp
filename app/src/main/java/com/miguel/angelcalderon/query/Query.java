@@ -24,19 +24,10 @@ public class Query {
                 .execute();
     }
 
-
     public List<Category> getCategory(String name) {
         return new Select()
                 .from(Category.class)
                 .where("Name = ?", name)
-                .execute();
-    }
-
-    public List<Place> getAllPlaceSort() {
-        return new Select()
-                .from(Place.class)
-                .orderBy("RANDOM()")
-                .limit(3)
                 .execute();
     }
 
@@ -69,5 +60,4 @@ public class Query {
                 .orderBy("RANDOM()")
                 .executeSingle();
     }
-
 }

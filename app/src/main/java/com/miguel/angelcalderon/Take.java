@@ -42,5 +42,4 @@ public class Take extends AppCompatActivity {
         intent.putExtra("paramQuery", "Restaurante");
         startActivity(intent);
     }
-
 }

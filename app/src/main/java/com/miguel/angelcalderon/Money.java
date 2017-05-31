@@ -28,14 +28,6 @@ public class Money extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /*@Click
-    void btn_price_forty() {
-        Log.d(TAG, "Btn pressed 40");
-        Intent intent = new Intent(this, ListPlaces_.class);
-        intent.putExtra("paramQuery", "40");
-        startActivity(intent);
-    } */
-    /* revisar query */
     @Click
     void btn_price_fifty() {
         Log.d(TAG, "Btn pressed 50");
@@ -43,14 +35,6 @@ public class Money extends AppCompatActivity {
         intent.putExtra("paramQuery", "50");
         startActivity(intent);
     }
-    /*
-    @Click
-    void btn_price_eighty() {
-        Log.d(TAG, "Btn pressed 80");
-        Intent intent = new Intent(this, ListPlaces_.class);
-        intent.putExtra("paramQuery", "80");
-        startActivity(intent);
-    } */
 
     @Click
     void btn_unlimited_price() {

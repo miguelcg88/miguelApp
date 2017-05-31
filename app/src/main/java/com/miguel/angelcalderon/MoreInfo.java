@@ -25,7 +25,6 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -49,9 +48,6 @@ public class MoreInfo extends AppCompatActivity {
 
     @ViewById(R.id.tv_more_info_schedule_hours)
     TextView textViewSchedule_hours;
-
-   /* @ViewById(R.id.tv_more_info_web)
-    TextView textViewWeb;*/
 
     @ViewById(R.id.txtMoreProd1)
     TextView txtMoreProd1;
@@ -104,15 +100,12 @@ public class MoreInfo extends AppCompatActivity {
 
         assert ((PlaceWrapperForBinder) getIntent().getExtras().getBinder("place")) != null;
         place = ((PlaceWrapperForBinder) getIntent().getExtras().getBinder("place")).getPlace();
-        //String paramGetId = getIntent().getStringExtra("paramQueryPlace");
 
         setTitle(place.name);
-        //textViewName.setText(place.name);
         textViewPhone.setText(place.Phone);
         textViewAddress.setText(place.address);
         textViewSchedule_day.setText(place.schedule_day);
         textViewSchedule_hours.setText(place.schedule_hour);
-      //  textViewWeb.setText(place.web);
 
         Query queryImage = new Query();
         List<Item> itemList = queryImage.getAllItemByPlace(place);
@@ -140,7 +133,6 @@ public class MoreInfo extends AppCompatActivity {
         sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         sliderLayout.setCustomAnimation(new DescriptionAnimation());
         sliderLayout.setDuration(5000);
-
 
         imgBtnFacebook.setImageResource(R.drawable.ic_facebook1);
         imgBtnLocation.setImageResource(R.drawable.ic_location1);

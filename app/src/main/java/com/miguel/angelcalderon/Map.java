@@ -1,6 +1,5 @@
 package com.miguel.angelcalderon;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,10 +42,7 @@ public class Map extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         AndroidGraphicFactory.createInstance(this.getApplication());
-
-
         setContentView(R.layout.map);
         this.mapView = (MapView) findViewById(R.id.mapView);
         this.toolbar = (Toolbar) findViewById(R.id.tb_map);
@@ -72,7 +68,6 @@ public class Map extends AppCompatActivity {
                 this.mapView.getModel().frameBufferModel.getOverdrawFactor());
 
         // tile renderer layer using internal render theme
-
         File file = createFileFromInputStream();
         MapDataStore mapDataStore = new MapFile(file);
         TileRendererLayer tileRendererLayer = new TileRendererLayer(tileCache, mapDataStore,
@@ -144,7 +139,6 @@ public class Map extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //positionmarker.requestRedraw();
     }
 
     class TappableMarker extends Marker {
