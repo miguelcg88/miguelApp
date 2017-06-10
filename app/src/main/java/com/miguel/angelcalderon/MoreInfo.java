@@ -145,8 +145,8 @@ public class MoreInfo extends AppCompatActivity {
             txtProd1Price.setVisibility(View.GONE);
             txtProd2Price.setVisibility(View.GONE);
             txtProd3Price.setVisibility(View.GONE);
-            imgOption1.setImageResource(R.drawable.ic_champagne1);
-            imgOption2.setImageResource(R.drawable.ic_champagne1);
+            imgOption1.setImageResource(R.drawable.ic_music);
+            imgOption2.setImageResource(R.drawable.ic_money);
             imgOption3.setImageResource(R.drawable.ic_champagne1);
         } else {
             if (itemList.size() > 0) {
