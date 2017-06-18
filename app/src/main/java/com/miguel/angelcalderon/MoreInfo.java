@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -167,14 +168,22 @@ public class MoreInfo extends AppCompatActivity {
 
     @Click
     void imgBtnUrl() {
+        if (!TextUtils.isEmpty(place.web)) {
         Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(place.web));
         startActivity(browserIntent);
+        } else {
+            Toast.makeText(this, "No se tiene registrado una dirección para este sitio", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Click
     void imgBtnFacebook() {
-        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(place.facebook));
-        startActivity(browserIntent);
+        if (!TextUtils.isEmpty(place.facebook)) {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(place.facebook));
+            startActivity(browserIntent);
+        } else {
+            Toast.makeText(this, "No se tiene registrado el facebook de este sitio", Toast.LENGTH_SHORT).show();
+        }
     }
     @Click
     void imgBtnLocation() {
