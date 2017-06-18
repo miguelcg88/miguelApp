@@ -49,11 +49,6 @@
             android:label="@string/menu_item_make"
             android:screenOrientation="portrait" />
 
-        <activity
-            android:name=".Location_"
-            android:label="@string/menu_item_location"
-            android:screenOrientation="portrait" />
-
         <activity android:name=".ListPlaces_"
             android:label="@string/menu_item_place"
             android:screenOrientation="portrait" />

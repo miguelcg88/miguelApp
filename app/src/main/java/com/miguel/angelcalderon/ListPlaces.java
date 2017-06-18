@@ -118,8 +118,6 @@ public class ListPlaces extends AppCompatActivity{
             TextView textView_Place_Phone;
             TextView textView_Place_Address;
             ImageView imageView_Place_Icon;
-            ImageView imageView_Place_Facebook;
-            ImageView imageView_Place_Web;
 
             public CustomViewHolder(View view) {
                 super(view);
@@ -128,8 +126,6 @@ public class ListPlaces extends AppCompatActivity{
                 textView_Place_Phone = (TextView) view.findViewById(R.id.tv_phone_place);
                 textView_Place_Address = (TextView) view.findViewById(R.id.tv_address_place);
                 imageView_Place_Icon = (ImageView) view.findViewById(R.id.iv_icon_place);
-                imageView_Place_Facebook = (ImageView) view.findViewById(R.id.iv_icon_place_facebook);
-                imageView_Place_Web = (ImageView) view.findViewById(R.id.iv_icon_place_web);
             }
         }
 
@@ -158,20 +154,6 @@ public class ListPlaces extends AppCompatActivity{
             holder.textView_Place_Title.setText(place.name);
             holder.textView_Place_Phone.setText("telf: " + place.Phone);
             holder.textView_Place_Address.setText(place.address);
-
-            holder.imageView_Place_Facebook.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent("android.intent.action.VIEW").setData(Uri.parse(place.facebook)));
-                }
-            });
-
-            holder.imageView_Place_Web.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent("android.intent.action.VIEW").setData(Uri.parse(place.web)));
-                }
-            });
 
             holder.cardView_Place.setOnClickListener(new View.OnClickListener() {
                 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)

@@ -97,19 +97,20 @@ public class Map extends AppCompatActivity {
     private File createFileFromInputStream() {
 
         try{
-            InputStream inputStream = getAssets().open("cercado.map");
             File f = new File(getFilesDir() +"/cercado.map");
-            OutputStream outputStream = new FileOutputStream(f);
-            byte buffer[] = new byte[1024];
-            int length = 0;
+            if (!f.exists()) {
+                InputStream inputStream = getAssets().open("cercado.map");
+                OutputStream outputStream = new FileOutputStream(f);
+                byte buffer[] = new byte[1024];
+                int length = 0;
 
-            while((length=inputStream.read(buffer)) > 0) {
-                outputStream.write(buffer,0,length);
+                while ((length = inputStream.read(buffer)) > 0) {
+                    outputStream.write(buffer, 0, length);
+                }
+
+                outputStream.close();
+                inputStream.close();
             }
-
-            outputStream.close();
-            inputStream.close();
-
             return f;
         }catch (IOException e) {
             //Logging exception
@@ -153,6 +154,13 @@ public class Map extends AppCompatActivity {
             this.mPlace = place;
         }
 
+        /**
+         * Calcula que estemos haciendo click en la imagen y no en todo la capa
+         * @param tapLatLong
+         * @param layerXY
+         * @param tapXY
+         * @return
+         */
         @Override
         public boolean onTap(LatLong tapLatLong, Point layerXY, Point tapXY) {
 

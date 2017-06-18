@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
@@ -182,6 +183,7 @@ public class MoreInfo extends AppCompatActivity {
         mapIntent.setPackage("com.google.android.apps.maps");
         if(mapIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(mapIntent);
-        }
+        } else
+            Toast.makeText(this, "Necesitas tener google maps instalado", Toast.LENGTH_SHORT).show();
     }
 }

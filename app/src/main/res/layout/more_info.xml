@@ -84,7 +84,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/padding_app_bar_top"
-                        android:src="@drawable/ic_dishes_black" />
+                        android:src="@drawable/ic_money" />
 
                     <TextView
                         android:id="@+id/txtMoreProd1"
@@ -117,7 +117,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/padding_app_bar_top"
-                        android:src="@drawable/ic_dishes_black" />
+                        android:src="@drawable/ic_money" />
 
                     <TextView
                         android:id="@+id/txtMoreProd2"
@@ -150,7 +150,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/padding_app_bar_top"
-                        android:src="@drawable/ic_dishes_black" />
+                        android:src="@drawable/ic_money" />
 
                     <TextView
                         android:id="@+id/txtMoreProd3"
@@ -253,14 +253,14 @@
                     android:background="#00FFFFFF"
                     android:tint="@color/white"
 
-                    android:src="@drawable/ic_world" />
+                    android:src="@drawable/ic_money" />
 
                 <ImageButton
                     android:id="@+id/imgBtnFacebook"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="#00FFFFFF"
-                    android:src="@drawable/ic_facebook"
+                    android:src="@drawable/ic_money"
                     android:tint="@color/white"/>
 
                 <ImageButton
@@ -268,7 +268,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="#00FFFFFF"
-                    android:src="@drawable/ic_location"
+                    android:src="@drawable/ic_money"
                     android:tint="@color/white"/>
 
             </TableRow>
