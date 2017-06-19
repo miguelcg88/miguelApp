@@ -172,7 +172,7 @@ public class MoreInfo extends AppCompatActivity {
         Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(place.web));
         startActivity(browserIntent);
         } else {
-            Toast.makeText(this, "No se tiene registrado una dirección para este sitio", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Este lugar no cuenta con pagina web", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -182,7 +182,7 @@ public class MoreInfo extends AppCompatActivity {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(place.facebook));
             startActivity(browserIntent);
         } else {
-            Toast.makeText(this, "No se tiene registrado el facebook de este sitio", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Este lugar no cuenta con fan page", Toast.LENGTH_SHORT).show();
         }
     }
     @Click
@@ -193,6 +193,6 @@ public class MoreInfo extends AppCompatActivity {
         if(mapIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(mapIntent);
         } else
-            Toast.makeText(this, "Necesitas tener google maps instalado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Por favor instala Google Maps para ver la direccion", Toast.LENGTH_SHORT).show();
     }
 }
