@@ -19,6 +19,7 @@ public class App extends Application {
     public static final String STATIC_CLUB = "Boliche";
     public static final String STATIC_RESTAURANT = "Restaurante";
     private List<Place> ListPlaces = new ArrayList<>();
+    private Place placeToShow;
 
     @Override
     public void onCreate() {
@@ -662,5 +663,13 @@ public class App extends Application {
 
     public void setListPlaces(List<Place> listPlaces) {
         ListPlaces = listPlaces;
+    }
+
+    public Place getPlaceToShow() {
+        return placeToShow;
+    }
+
+    public void setPlaceToShow(Place placeToShow) {
+        this.placeToShow = placeToShow;
     }
 }

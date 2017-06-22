@@ -3,7 +3,6 @@ package com.miguel.angelcalderon;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +20,6 @@ import android.widget.TextView;
 import com.miguel.angelcalderon.model.Category;
 import com.miguel.angelcalderon.model.Item;
 import com.miguel.angelcalderon.model.Place;
-import com.miguel.angelcalderon.query.PlaceWrapperForBinder;
 import com.miguel.angelcalderon.query.Query;
 
 import org.androidannotations.annotations.AfterViews;
@@ -160,7 +158,8 @@ public class ListPlaces extends AppCompatActivity{
                 @Override
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
-                    bundle.putBinder("place", new PlaceWrapperForBinder(place));
+                    ((App)getApplicationContext()).setPlaceToShow(place);
+                    //bundle.putSerializable("place", new PlaceWrapperForBinder(place));
                     Intent intent = new Intent(getApplicationContext(), MoreInfo_.class);
                     intent.putExtras(bundle);
                     startActivity(intent);

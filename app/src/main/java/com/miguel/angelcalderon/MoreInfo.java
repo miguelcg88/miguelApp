@@ -19,7 +19,6 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.miguel.angelcalderon.model.Item;
 import com.miguel.angelcalderon.model.Place;
-import com.miguel.angelcalderon.query.PlaceWrapperForBinder;
 import com.miguel.angelcalderon.query.Query;
 
 import org.androidannotations.annotations.AfterViews;
@@ -100,8 +99,9 @@ public class MoreInfo extends AppCompatActivity {
             }
         });
 
-        assert ((PlaceWrapperForBinder) getIntent().getExtras().getBinder("place")) != null;
-        place = ((PlaceWrapperForBinder) getIntent().getExtras().getBinder("place")).getPlace();
+        //assert ((PlaceWrapperForBinder) getIntent().getExtras().getSerializable("place")) != null;
+        //place = ((PlaceWrapperForBinder) getIntent().getExtras().getSerializable("place")).getPlace();
+        place = ((App)getApplicationContext()).getPlaceToShow();
 
         setTitle(place.name);
         textViewPhone.setText(place.Phone);

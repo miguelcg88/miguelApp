@@ -81,7 +81,7 @@
                         android:background="@android:color/transparent"
                         android:drawablePadding="8dp"
                         android:drawableTint="@android:color/white"
-                        android:drawableTop="@drawable/ic_que_hacer"
+                        android:drawableTop="@drawable/ic_glasses_icon"
                         android:padding="16dp"
                         android:text="Que quieres hacer?"
                         android:textColor="@color/white" />
@@ -97,7 +97,7 @@
                         android:background="@android:color/transparent"
                         android:drawablePadding="8dp"
                         android:drawableTint="@android:color/white"
-                        android:drawableTop="@drawable/ic_dinero"
+                        android:drawableTop="@drawable/ic_money_icon"
                         android:padding="16dp"
                         android:text="Cuanto tengo?"
                         android:textColor="@android:color/white" />
@@ -123,7 +123,7 @@
                         android:background="@android:color/transparent"
                         android:drawablePadding="8dp"
                         android:drawableTint="@color/white"
-                        android:drawableTop="@drawable/ic_sorprendeme"
+                        android:drawableTop="@drawable/ic_emoticon_icon"
                         android:padding="16dp"
                         android:text="Sorprendeme!"
                         android:textColor="@android:color/white" />
@@ -139,7 +139,7 @@
                         android:background="@android:color/transparent"
                         android:drawablePadding="8dp"
                         android:drawableTint="@android:color/white"
-                        android:drawableTop="@drawable/ic_encontrar_lugares_svg"
+                        android:drawableTop="@drawable/ic_bus_icon"
                         android:padding="16dp"
                         android:text="Encontrar lugares"
                         android:textColor="@android:color/white" />

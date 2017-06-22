@@ -11,10 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 
 import com.miguel.angelcalderon.model.Place;
-import com.miguel.angelcalderon.query.PlaceWrapperForBinder;
 import com.miguel.angelcalderon.query.Query;
 
 import org.androidannotations.annotations.AfterViews;
@@ -68,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "Btn pressed ListPlacesActivity");
         Bundle bundle = new Bundle();
         Place place = new Query().getPlaceRandom();
-        bundle.putBinder("place", new PlaceWrapperForBinder(place));
+        ((App)getApplicationContext()).setPlaceToShow(place);
+        //bundle.putSerializable("place", new PlaceWrapperForBinder(place));
         Intent intent = new Intent(this, MoreInfo_.class);
         intent.putExtras(bundle);
         startActivity(intent);
