@@ -1,12 +1,17 @@
 package com.miguel.angelcalderon;
 
 import android.annotation.TargetApi;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
 
 import com.miguel.angelcalderon.model.Place;
 import com.miguel.angelcalderon.query.PlaceWrapperForBinder;
@@ -36,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
     void btnMenuMoney() {
         Log.d(TAG, "Btn pressed MoneyActivity");
         startActivity(new Intent(this, Money_.class));
+    }
+
+    @Click
+    void btnAbout() {
+        showChangeLangDialog();
     }
 
     @Click
@@ -71,5 +81,19 @@ public class MainActivity extends AppCompatActivity {
             result = getResources().getDimensionPixelSize(resourceId);
         }
         return result;
+    }
+
+    public void showChangeLangDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Dialog_NoActionBar);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //do something with edt.getText().toString();
+            }
+        });
+        AlertDialog b = dialogBuilder.create();
+        b.show();
     }
 }
