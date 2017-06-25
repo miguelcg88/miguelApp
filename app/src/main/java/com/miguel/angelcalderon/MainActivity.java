@@ -1,15 +1,18 @@
 package com.miguel.angelcalderon;
 
 import android.annotation.TargetApi;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import com.miguel.angelcalderon.model.Place;
-import com.miguel.angelcalderon.query.PlaceWrapperForBinder;
 import com.miguel.angelcalderon.query.Query;
 
 import org.androidannotations.annotations.AfterViews;
@@ -39,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Click
+    void btnAbout() {
+        showChangeLangDialog();
+    }
+
+    @Click
     void btnMenuLocation() {
         Log.d(TAG, "Btn pressed LocationActivity");
         Query queryPlace = new Query();
@@ -58,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "Btn pressed ListPlacesActivity");
         Bundle bundle = new Bundle();
         Place place = new Query().getPlaceRandom();
-        bundle.putBinder("place", new PlaceWrapperForBinder(place));
+        ((App)getApplicationContext()).setPlaceToShow(place);
+        //bundle.putSerializable("place", new PlaceWrapperForBinder(place));
         Intent intent = new Intent(this, MoreInfo_.class);
         intent.putExtras(bundle);
         startActivity(intent);
@@ -71,5 +80,19 @@ public class MainActivity extends AppCompatActivity {
             result = getResources().getDimensionPixelSize(resourceId);
         }
         return result;
+    }
+
+    public void showChangeLangDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Dialog_NoActionBar);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+        dialogBuilder.setView(dialogView);
+        dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //do something with edt.getText().toString();
+            }
+        });
+        AlertDialog b = dialogBuilder.create();
+        b.show();
     }
 }

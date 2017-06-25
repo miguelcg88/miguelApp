@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.miguel.angelcalderon.model.Place;
-import com.miguel.angelcalderon.query.PlaceWrapperForBinder;
 
 import org.mapsforge.core.graphics.Bitmap;
 import org.mapsforge.core.model.LatLong;
@@ -134,7 +133,8 @@ public class Map extends AppCompatActivity {
             public void onClick(Place place) {
                 Toast.makeText(Map.this, place.name, Toast.LENGTH_SHORT).show();
                 Bundle bundle = new Bundle();
-                bundle.putBinder("place", new PlaceWrapperForBinder(place));
+                ((App)getApplicationContext()).setPlaceToShow(place);
+                //bundle.putSerializable("place", new PlaceWrapperForBinder(place));
                 Intent intent = new Intent(getApplicationContext(), MoreInfo_.class);
                 intent.putExtras(bundle);
                 startActivity(intent);

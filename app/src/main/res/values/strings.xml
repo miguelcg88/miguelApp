@@ -18,5 +18,6 @@
     <string name="title_place">Titulo de Lugar</string>
     <string name="phone_place">444444</string>
     <string name="address_place">av. America entre c. Junin y c. Pedro</string>
+    <string name="about_link"><a href='http://pong.com'>http://pong.com</a></string>
 
 </resources>
