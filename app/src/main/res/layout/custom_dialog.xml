@@ -18,7 +18,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About"
+            android:text="Acerca de"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -43,24 +43,16 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="8dp">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="8dp"
-            android:gravity="right|center_vertical"
-            android:text="Creado por:"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+        android:layout_marginBottom="10dp">
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="Miguel Angel Calderon"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="Miguel Angel Calderon Galindo"
             android:textColor="@color/white" />
 
     </TableRow>
@@ -71,20 +63,12 @@
         android:layout_marginBottom="8dp">
 
         <TextView
-            android:id="@+id/textView343"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="8dp"
-            android:gravity="right|center_vertical"
-            android:text="Desarrollado por:"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/textView43"
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:gravity="center"
+            android:textStyle="bold"
             android:text="Samuel Reque"
             android:textColor="@color/white" />
 
@@ -93,82 +77,91 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="4dp">
 
         <TextView
             android:id="@+id/textView31"
-            android:layout_width="wrap_content"
+            android:textColor="@color/white"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="8dp"
-            android:gravity="right|center_vertical"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Agradecimientos y creditos :" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp">
 
         <TextView
-            android:id="@+id/textView313"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="Juann Perez"
+            android:gravity="center"
+            android:text="Esteban Vargas (Iconos)"
             android:textColor="@color/white" />
+
     </TableRow>
+
+
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="8dp">
 
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="8dp"
-            android:gravity="right|center_vertical"
-            android:textStyle="bold" />
+
 
         <TextView
             android:id="@+id/textView321"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="Milton Carvajal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="www.lapaginadeiconos.com (Iconos)"
             android:textColor="@color/white" />
     </TableRow>
 
     <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="8dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp">
 
         <TextView
-            android:id="@+id/textView3122"
+            android:id="@+id/textview10"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="8dp"
-            android:gravity="right|center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_span="2"
+            android:gravity="center"
+            android:text="@string/web_in_about"
+            android:textColor="@color/white"
             android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView4334"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="Hernesto limachi"
-            android:textColor="@color/white" />
     </TableRow>
+
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+
+        >
 
         <TextView
             android:id="@+id/tvLink"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_span="2"
-            android:autoLink="all"
+            android:textStyle="bold"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center"
+            android:autoLink="all"
+            android:textSize="14sp"
             android:text="@string/about_link" />
     </TableRow>
 

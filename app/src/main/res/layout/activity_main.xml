@@ -30,9 +30,9 @@
             android:id="@+id/btnAbout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
+            android:layout_gravity="bottom|center"
             android:background="@android:drawable/screen_background_dark_transparent"
-            android:text="About"
+            android:text="Acerca de"
             android:textColor="@color/white"
             tools:textAllCaps="false" />
 
