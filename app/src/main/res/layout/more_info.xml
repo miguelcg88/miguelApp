@@ -27,8 +27,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.daimajia.slider.library.SliderLayout
             android:id="@+id/slider"
@@ -251,9 +251,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="#00FFFFFF"
-                    android:tint="@color/white"
-
-                    android:src="@drawable/ic_money" />
+                    android:src="@drawable/ic_money"
+                    android:tint="@color/white" />
 
                 <ImageButton
                     android:id="@+id/imgBtnFacebook"
@@ -261,7 +260,7 @@
                     android:layout_height="match_parent"
                     android:background="#00FFFFFF"
                     android:src="@drawable/ic_money"
-                    android:tint="@color/white"/>
+                    android:tint="@color/white" />
 
                 <ImageButton
                     android:id="@+id/imgBtnLocation"
@@ -269,7 +268,15 @@
                     android:layout_height="match_parent"
                     android:background="#00FFFFFF"
                     android:src="@drawable/ic_money"
-                    android:tint="@color/white"/>
+                    android:tint="@color/white" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#00FFFFFF"
+                    android:src="@drawable/ic_rate"
+                    android:tint="@color/white" />
 
             </TableRow>
         </TableLayout>

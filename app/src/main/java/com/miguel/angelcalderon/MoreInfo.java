@@ -87,6 +87,9 @@ public class MoreInfo extends AppCompatActivity {
     ImageButton imgBtnLocation;
     Place place;
 
+    @ViewById(R.id.imgBtnRate)
+    ImageButton imgBtnRate;
+
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
     @AfterViews
     void initialize() {
@@ -139,6 +142,7 @@ public class MoreInfo extends AppCompatActivity {
         imgBtnFacebook.setImageResource(R.drawable.ic_facebook1);
         imgBtnLocation.setImageResource(R.drawable.ic_location1);
         imgBtnUrl.setImageResource(R.drawable.ic_earth1);
+        imgBtnRate.setImageResource(R.drawable.ic_rate);
 
         if (place.category.name.equals(App.STATIC_CLUB)) {
             txtMoreProd1.setText(place.activity1);
@@ -194,5 +198,10 @@ public class MoreInfo extends AppCompatActivity {
             startActivity(mapIntent);
         } else
             Toast.makeText(this, "Por favor instala Google Maps para ver la direccion", Toast.LENGTH_SHORT).show();
+    }
+    @Click
+    void imgBtnRate() {
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(place.web));
+        startActivity(browserIntent);
     }
 }
