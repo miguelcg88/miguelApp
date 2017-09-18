@@ -23,5 +23,5 @@ public class Item extends Model implements Serializable{
     public String image;
 
     @Column(name = "Places")
-    public Place place;
+    public Lugar lugar;
 }

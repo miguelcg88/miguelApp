@@ -9,13 +9,12 @@ import android.view.View;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.Fullscreen;
 import org.androidannotations.annotations.ViewById;
 
-@EActivity(R.layout.money)
-public class Money extends AppCompatActivity {
+@EActivity(R.layout.escoger_por_precios)
+public class FiltrarPorPrecios extends AppCompatActivity {
 
-    private static String TAG = "Money";
+    private static String TAG = "FiltrarPorPrecios";
 
     @ViewById(R.id.tb_money)
     Toolbar toolbar;
@@ -23,7 +22,7 @@ public class Money extends AppCompatActivity {
     @Click
     void btn_price_twenty() {
         Log.d(TAG, "Btn pressed 20");
-        Intent intent = new Intent(this, ListPlaces_.class);
+        Intent intent = new Intent(this, ListarLugares_.class);
         intent.putExtra("paramQuery", "20");
         startActivity(intent);
     }
@@ -31,7 +30,7 @@ public class Money extends AppCompatActivity {
     @Click
     void btn_price_fifty() {
         Log.d(TAG, "Btn pressed 50");
-        Intent intent = new Intent(this, ListPlaces_.class);
+        Intent intent = new Intent(this, ListarLugares_.class);
         intent.putExtra("paramQuery", "50");
         startActivity(intent);
     }
@@ -39,7 +38,7 @@ public class Money extends AppCompatActivity {
     @Click
     void btn_unlimited_price() {
         Log.d(TAG, "Btn pressed Unlimited");
-        Intent intent = new Intent(this, ListPlaces_.class);
+        Intent intent = new Intent(this, ListarLugares_.class);
         intent.putExtra("paramQuery", ">100");
         startActivity(intent);
     }

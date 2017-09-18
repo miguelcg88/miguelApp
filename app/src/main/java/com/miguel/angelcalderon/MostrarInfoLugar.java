@@ -18,7 +18,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.miguel.angelcalderon.model.Item;
-import com.miguel.angelcalderon.model.Place;
+import com.miguel.angelcalderon.model.Lugar;
 import com.miguel.angelcalderon.query.Query;
 
 import org.androidannotations.annotations.AfterViews;
@@ -29,8 +29,8 @@ import org.androidannotations.annotations.ViewById;
 import java.util.HashMap;
 import java.util.List;
 
-@EActivity(R.layout.more_info)
-public class MoreInfo extends AppCompatActivity {
+@EActivity(R.layout.mostrar_info_lugar)
+public class MostrarInfoLugar extends AppCompatActivity {
 
     @ViewById(R.id.slider)
     SliderLayout sliderLayout;
@@ -85,7 +85,7 @@ public class MoreInfo extends AppCompatActivity {
 
     @ViewById(R.id.imgBtnLocation)
     ImageButton imgBtnLocation;
-    Place place;
+    Lugar lugar;
 
     @ViewById(R.id.imgBtnRate)
     ImageButton imgBtnRate;
@@ -102,18 +102,18 @@ public class MoreInfo extends AppCompatActivity {
             }
         });
 
-        //assert ((PlaceWrapperForBinder) getIntent().getExtras().getSerializable("place")) != null;
-        //place = ((PlaceWrapperForBinder) getIntent().getExtras().getSerializable("place")).getPlace();
-        place = ((App)getApplicationContext()).getPlaceToShow();
+        //assert ((PlaceWrapperForBinder) getIntent().getExtras().getSerializable("lugar")) != null;
+        //lugar = ((PlaceWrapperForBinder) getIntent().getExtras().getSerializable("lugar")).getPlace();
+        lugar = ((App)getApplicationContext()).getLugarToShow();
 
-        setTitle(place.name);
-        textViewPhone.setText(place.Phone);
-        textViewAddress.setText(place.address);
-        textViewSchedule_day.setText(place.schedule_day);
-        textViewSchedule_hours.setText(place.schedule_hour);
+        setTitle(lugar.name);
+        textViewPhone.setText(lugar.Phone);
+        textViewAddress.setText(lugar.address);
+        textViewSchedule_day.setText(lugar.schedule_day);
+        textViewSchedule_hours.setText(lugar.schedule_hour);
 
         Query queryImage = new Query();
-        List<Item> itemList = queryImage.getAllItemByPlace(place);
+        List<Item> itemList = queryImage.getAllItemByPlace(lugar);
 
         HashMap<String, Integer> url_maps = new HashMap<>();
         for (Item item : itemList) {
@@ -144,10 +144,10 @@ public class MoreInfo extends AppCompatActivity {
         imgBtnUrl.setImageResource(R.drawable.ic_earth1);
         imgBtnRate.setImageResource(R.drawable.ic_rate);
 
-        if (place.category.name.equals(App.STATIC_CLUB)) {
-            txtMoreProd1.setText(place.activity1);
-            txtMoreProd2.setText(place.activity2);
-            txtMoreProd3.setText(place.activity3);
+        if (lugar.categoria.name.equals(App.STATIC_CLUB)) {
+            txtMoreProd1.setText(lugar.activity1);
+            txtMoreProd2.setText(lugar.activity2);
+            txtMoreProd3.setText(lugar.activity3);
             txtProd1Price.setVisibility(View.GONE);
             txtProd2Price.setVisibility(View.GONE);
             txtProd3Price.setVisibility(View.GONE);
@@ -172,8 +172,8 @@ public class MoreInfo extends AppCompatActivity {
 
     @Click
     void imgBtnUrl() {
-        if (!TextUtils.isEmpty(place.web)) {
-        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(place.web));
+        if (!TextUtils.isEmpty(lugar.web)) {
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(lugar.web));
         startActivity(browserIntent);
         } else {
             Toast.makeText(this, "Este lugar no cuenta con pagina web", Toast.LENGTH_SHORT).show();
@@ -182,8 +182,8 @@ public class MoreInfo extends AppCompatActivity {
 
     @Click
     void imgBtnFacebook() {
-        if (!TextUtils.isEmpty(place.facebook)) {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(place.facebook));
+        if (!TextUtils.isEmpty(lugar.facebook)) {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(lugar.facebook));
             startActivity(browserIntent);
         } else {
             Toast.makeText(this, "Este lugar no cuenta con fan page", Toast.LENGTH_SHORT).show();
@@ -191,7 +191,7 @@ public class MoreInfo extends AppCompatActivity {
     }
     @Click
     void imgBtnLocation() {
-        Uri intentUri = Uri.parse("geo:0,0?q=" + place.latitud + ","+ place.longitud + "(" + place.name + ")");
+        Uri intentUri = Uri.parse("geo:0,0?q=" + lugar.latitud + ","+ lugar.longitud + "(" + lugar.name + ")");
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, intentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         if(mapIntent.resolveActivity(getPackageManager()) != null) {
@@ -201,7 +201,7 @@ public class MoreInfo extends AppCompatActivity {
     }
     @Click
     void imgBtnRate() {
-        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(place.web));
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse(lugar.web));
         startActivity(browserIntent);
     }
 }

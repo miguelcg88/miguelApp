@@ -8,11 +8,10 @@ import android.view.View;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.Fullscreen;
 import org.androidannotations.annotations.ViewById;
 
-@EActivity(R.layout.take)
-public class Take extends AppCompatActivity {
+@EActivity(R.layout.escoger_por_categoria)
+public class EscogerCategoria extends AppCompatActivity {
 
     @ViewById(R.id.tb_take)
     Toolbar toolbar;
@@ -31,14 +30,14 @@ public class Take extends AppCompatActivity {
 
     @Click
     void btn_take_club() {
-        Intent intent = new Intent(this, ListPlaces_.class);
+        Intent intent = new Intent(this, ListarLugares_.class);
         intent.putExtra("paramQuery", "Boliche");
         startActivity(intent);
     }
 
     @Click
     void btn_take_restaurant() {
-        Intent intent = new Intent(this, ListPlaces_.class);
+        Intent intent = new Intent(this, ListarLugares_.class);
         intent.putExtra("paramQuery", "Restaurante");
         startActivity(intent);
     }

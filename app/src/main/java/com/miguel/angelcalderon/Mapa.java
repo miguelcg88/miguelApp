@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
-import com.miguel.angelcalderon.model.Place;
+import com.miguel.angelcalderon.model.Lugar;
 
 import org.mapsforge.core.graphics.Bitmap;
 import org.mapsforge.core.model.LatLong;
@@ -30,19 +30,19 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
-public class Map extends AppCompatActivity {
+public class Mapa extends AppCompatActivity {
     private static final String LIST_PLACES = "places";
 
     private MapView mapView;
     private Toolbar toolbar;
-    private List<Place> mPlaces;
+    private List<Lugar> mLugars;
     private LatLong centerLocation = new LatLong(-17.3823, -66.1604);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndroidGraphicFactory.createInstance(this.getApplication());
-        setContentView(R.layout.map);
+        setContentView(R.layout.mapa);
         this.mapView = (MapView) findViewById(R.id.mapView);
         this.toolbar = (Toolbar) findViewById(R.id.tb_map);
         this.mapView.setClickable(true);
@@ -76,14 +76,14 @@ public class Map extends AppCompatActivity {
 
         // only once a layer is associated with a mapView the rendering starts
         this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
-        mPlaces = getPlaces();
-        if (mPlaces.size() == 1) {
-            centerLocation = new LatLong(mPlaces.get(0).latitud, mPlaces.get(0).longitud);
+        mLugars = getPlaces();
+        if (mLugars.size() == 1) {
+            centerLocation = new LatLong(mLugars.get(0).latitud, mLugars.get(0).longitud);
         }
         this.mapView.setCenter(centerLocation);
         this.mapView.setZoomLevel((byte) 14);
-        for (Place place: mPlaces) {
-            createPositionMarker(place);
+        for (Lugar lugar : mLugars) {
+            createPositionMarker(lugar);
         }
     }
 
@@ -119,23 +119,23 @@ public class Map extends AppCompatActivity {
         return null;
     }
 
-    public List<Place> getPlaces() {
-        return ((App) getApplicationContext()).getListPlaces();
+    public List<Lugar> getPlaces() {
+        return ((App) getApplicationContext()).getListLugars();
     }
-    private void createPositionMarker(Place place) {
-        TappableMarker positionmarker = new TappableMarker(this, place, AndroidGraphicFactory.convertToBitmap(getResources().getDrawable(getResources().
-                getIdentifier(place.icon_marker, "drawable", getPackageName()))));
+    private void createPositionMarker(Lugar lugar) {
+        TappableMarker positionmarker = new TappableMarker(this, lugar, AndroidGraphicFactory.convertToBitmap(getResources().getDrawable(getResources().
+                getIdentifier(lugar.icon_marker, "drawable", getPackageName()))));
         mapView.getLayerManager().
                 getLayers().
                 add(positionmarker);
         positionmarker.setOnMakerTap(new OnMarkerTapListener() {
             @Override
-            public void onClick(Place place) {
-                Toast.makeText(Map.this, place.name, Toast.LENGTH_SHORT).show();
+            public void onClick(Lugar lugar) {
+                Toast.makeText(Mapa.this, lugar.name, Toast.LENGTH_SHORT).show();
                 Bundle bundle = new Bundle();
-                ((App)getApplicationContext()).setPlaceToShow(place);
-                //bundle.putSerializable("place", new PlaceWrapperForBinder(place));
-                Intent intent = new Intent(getApplicationContext(), MoreInfo_.class);
+                ((App)getApplicationContext()).setLugarToShow(lugar);
+                //bundle.putSerializable("lugar", new PlaceWrapperForBinder(lugar));
+                Intent intent = new Intent(getApplicationContext(), MostrarInfo_Lugar_.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
@@ -146,12 +146,12 @@ public class Map extends AppCompatActivity {
 
         Context cntx;
         OnMarkerTapListener mListener;
-        Place mPlace;
+        Lugar mLugar;
 
-        public TappableMarker(Context cntx, Place place, Bitmap mark) {
-            super(new LatLong(place.latitud, place.longitud),mark ,0 , -mark.getHeight()/2);
+        public TappableMarker(Context cntx, Lugar lugar, Bitmap mark) {
+            super(new LatLong(lugar.latitud, lugar.longitud),mark ,0 , -mark.getHeight()/2);
             this.cntx = cntx;
-            this.mPlace = place;
+            this.mLugar = lugar;
         }
 
         /**
@@ -176,7 +176,7 @@ public class Map extends AppCompatActivity {
 
             if( distX < radiusX && distY < radiusY){
                 if (mListener != null) {
-                    mListener.onClick(mPlace);
+                    mListener.onClick(mLugar);
                     return true;
                 }
             }
@@ -189,6 +189,6 @@ public class Map extends AppCompatActivity {
     }
 
     interface OnMarkerTapListener {
-        void onClick(Place place);
+        void onClick(Lugar lugar);
     }
 }

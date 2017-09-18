@@ -12,7 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.miguel.angelcalderon.model.Place;
+import com.miguel.angelcalderon.model.Lugar;
 import com.miguel.angelcalderon.query.Query;
 
 import org.androidannotations.annotations.AfterViews;
@@ -20,10 +20,10 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-@EActivity(R.layout.activity_main)
-public class MainActivity extends AppCompatActivity {
+@EActivity(R.layout.bienvenida)
+public class Principal extends AppCompatActivity {
 
-    private static String TAG = "MainActivity";
+    private static String TAG = "Principal";
 
     @ViewById(R.id.tb_main)
     Toolbar toolbar;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     @Click
     void btnMenuMoney() {
         Log.d(TAG, "Btn pressed MoneyActivity");
-        startActivity(new Intent(this, Money_.class));
+        startActivity(new Intent(this, FiltrarPorPrecios_.class));
     }
 
     @Click
@@ -50,14 +50,14 @@ public class MainActivity extends AppCompatActivity {
     void btnMenuLocation() {
         Log.d(TAG, "Btn pressed LocationActivity");
         Query queryPlace = new Query();
-        ((App)getApplicationContext()).setListPlaces(queryPlace.getAllPlace());
-        startActivity(new Intent(this, Map.class));
+        ((App)getApplicationContext()).setListLugars(queryPlace.getAllPlace());
+        startActivity(new Intent(this, Mapa.class));
     }
 
     @Click
     void btnMenuMake() {
         Log.d(TAG, "Btn pressed TakeActivity");
-        startActivity(new Intent(this, Take_.class));
+        startActivity(new Intent(this, EscogerCategoria_.class));
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
@@ -65,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
     void btnMenuHelpMe() {
         Log.d(TAG, "Btn pressed ListPlacesActivity");
         Bundle bundle = new Bundle();
-        Place place = new Query().getPlaceRandom();
-        ((App)getApplicationContext()).setPlaceToShow(place);
-        //bundle.putSerializable("place", new PlaceWrapperForBinder(place));
-        Intent intent = new Intent(this, MoreInfo_.class);
+        Lugar lugar = new Query().getPlaceRandom();
+        ((App)getApplicationContext()).setLugarToShow(lugar);
+        //bundle.putSerializable("lugar", new PlaceWrapperForBinder(lugar));
+        Intent intent = new Intent(this, MostrarInfo_Lugar_.class);
         intent.putExtras(bundle);
         startActivity(intent);
     }
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     public void showChangeLangDialog() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Dialog_NoActionBar);
         LayoutInflater inflater = this.getLayoutInflater();
-        final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+        final View dialogView = inflater.inflate(R.layout.acerca_de, null);
         dialogBuilder.setView(dialogView);
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {

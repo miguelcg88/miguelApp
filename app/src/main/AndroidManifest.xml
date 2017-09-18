@@ -29,36 +29,36 @@
             android:value="com.miguel.angelcalderon.model.Category, com.miguel.angelcalderon.model.Place, com.miguel.angelcalderon.model.Item, com.miguel.angelcalderon.query.DefaultData"/>
 
         <activity
-            android:name=".MainActivity_"
+            android:name=".Principal_"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <categoria android:name="android.intent.categoria.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".Money_"
+            android:name=".FiltrarPorPrecios_"
             android:label="@string/menu_item_money"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".Take_"
+            android:name=".EscogerCategoria_"
             android:label="@string/menu_item_make"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".ListPlaces_"
+        <activity android:name=".ListarLugares_"
             android:label="@string/menu_item_place"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".MoreInfo_"
+            android:name=".MostrarInfo_Lugar_"
             android:label="@string/menu_item_more_info"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Map"
+        <activity android:name=".Mapa"
             android:label="@string/menu_item_place"
             android:screenOrientation="portrait" />
     </application>

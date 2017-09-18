@@ -17,9 +17,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.miguel.angelcalderon.model.Category;
+import com.miguel.angelcalderon.model.Categoria;
 import com.miguel.angelcalderon.model.Item;
-import com.miguel.angelcalderon.model.Place;
+import com.miguel.angelcalderon.model.Lugar;
 import com.miguel.angelcalderon.query.Query;
 
 import org.androidannotations.annotations.AfterViews;
@@ -29,14 +29,14 @@ import org.androidannotations.annotations.ViewById;
 import java.util.ArrayList;
 import java.util.List;
 
-@EActivity(R.layout.listplaces)
-public class ListPlaces extends AppCompatActivity{
+@EActivity(R.layout.listar_lugares)
+public class ListarLugares extends AppCompatActivity{
 
-    private String TAG = "ListPlaces";
+    private String TAG = "ListarLugares";
 
     PlaceAdapter placeAdapter;
     RecyclerView recyclerView;
-    List<Place> placeArrayList;
+    List<Lugar> lugarArrayList;
 
     @ViewById(R.id.tb_list_places)
     Toolbar toolbar;
@@ -75,26 +75,26 @@ public class ListPlaces extends AppCompatActivity{
     }
 
     private void showByCategory(String paramObject) {
-        placeArrayList = new ArrayList<>();
+        lugarArrayList = new ArrayList<>();
         Query getDataCategory = new Query();
-        List<Category> categories = getDataCategory.getCategory(paramObject);
+        List<Categoria> categories = getDataCategory.getCategory(paramObject);
         for (int i = 0; i<=categories.size(); i++){
-            Category category = categories.get(0);
+            Categoria categoria = categories.get(0);
             Query queryPlace = new Query();
-            placeArrayList = queryPlace.getAllPlace(category);
-            placeAdapter = new PlaceAdapter(this, placeArrayList);
+            lugarArrayList = queryPlace.getAllPlace(categoria);
+            placeAdapter = new PlaceAdapter(this, lugarArrayList);
             recyclerView.setAdapter(placeAdapter);
         }
     }
 
     private void showByAmount(String paramAmount, boolean upper) {
-        placeArrayList = new ArrayList<>();
+        lugarArrayList = new ArrayList<>();
         List<Item> items = upper ? new Query().getAllPlaceByAmountUp(paramAmount)
                 : new Query().getAllPlaceByAmount(paramAmount);
-        System.out.println(placeArrayList);
+        System.out.println(lugarArrayList);
         for (Item item: items) {
-            placeArrayList.add(item.place);
-            placeAdapter = new PlaceAdapter(this, placeArrayList);
+            lugarArrayList.add(item.lugar);
+            placeAdapter = new PlaceAdapter(this, lugarArrayList);
             recyclerView.setAdapter(placeAdapter);
         }
     }
@@ -107,7 +107,7 @@ public class ListPlaces extends AppCompatActivity{
         CustomViewHolder customViewHolder;
         Context context;
 
-        List<Place> listPlaces;
+        List<Lugar> listLugars;
 
         public class CustomViewHolder extends RecyclerView.ViewHolder {
 
@@ -127,13 +127,13 @@ public class ListPlaces extends AppCompatActivity{
             }
         }
 
-        public PlaceAdapter(Context paramContext, List<Place> paramPlaces) {
+        public PlaceAdapter(Context paramContext, List<Lugar> paramLugars) {
             context = paramContext;
-            listPlaces = paramPlaces;
+            listLugars = paramLugars;
         }
 
         public CustomViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-            View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.place_cell, viewGroup, false);
+            View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.lugar_celda, viewGroup, false);
 
             customViewHolder = new CustomViewHolder(view);
             return customViewHolder;
@@ -141,26 +141,26 @@ public class ListPlaces extends AppCompatActivity{
 
         @Override
         public int getItemCount() {
-            return listPlaces.size();
+            return listLugars.size();
         }
 
         @Override
         public void onBindViewHolder(CustomViewHolder holder, final int position) {
-            final Place place = listPlaces.get(position);
+            final Lugar lugar = listLugars.get(position);
 
-            holder.imageView_Place_Icon.setImageDrawable(getResources().getDrawable(getResources().getIdentifier(place.icon, "drawable", getPackageName())));
-            holder.textView_Place_Title.setText(place.name);
-            holder.textView_Place_Phone.setText("telf: " + place.Phone);
-            holder.textView_Place_Address.setText(place.address);
+            holder.imageView_Place_Icon.setImageDrawable(getResources().getDrawable(getResources().getIdentifier(lugar.icon, "drawable", getPackageName())));
+            holder.textView_Place_Title.setText(lugar.name);
+            holder.textView_Place_Phone.setText("telf: " + lugar.Phone);
+            holder.textView_Place_Address.setText(lugar.address);
 
             holder.cardView_Place.setOnClickListener(new View.OnClickListener() {
                 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
                 @Override
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
-                    ((App)getApplicationContext()).setPlaceToShow(place);
-                    //bundle.putSerializable("place", new PlaceWrapperForBinder(place));
-                    Intent intent = new Intent(getApplicationContext(), MoreInfo_.class);
+                    ((App)getApplicationContext()).setLugarToShow(lugar);
+                    //bundle.putSerializable("lugar", new PlaceWrapperForBinder(lugar));
+                    Intent intent = new Intent(getApplicationContext(), MostrarInfo_Lugar_.class);
                     intent.putExtras(bundle);
                     startActivity(intent);
                 }
