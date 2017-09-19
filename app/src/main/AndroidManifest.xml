@@ -35,7 +35,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <categoria android:name="android.intent.categoria.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
@@ -54,7 +54,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".MostrarInfo_Lugar_"
+            android:name=".MostrarInfoLugar_"
             android:label="@string/menu_item_more_info"
             android:screenOrientation="portrait" />
 

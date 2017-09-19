@@ -68,7 +68,7 @@ public class Principal extends AppCompatActivity {
         Lugar lugar = new Query().getPlaceRandom();
         ((App)getApplicationContext()).setLugarToShow(lugar);
         //bundle.putSerializable("lugar", new PlaceWrapperForBinder(lugar));
-        Intent intent = new Intent(this, MostrarInfo_Lugar_.class);
+        Intent intent = new Intent(this, MostrarInfoLugar_.class);
         intent.putExtras(bundle);
         startActivity(intent);
     }

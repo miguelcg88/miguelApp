@@ -135,7 +135,7 @@ public class Mapa extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 ((App)getApplicationContext()).setLugarToShow(lugar);
                 //bundle.putSerializable("lugar", new PlaceWrapperForBinder(lugar));
-                Intent intent = new Intent(getApplicationContext(), MostrarInfo_Lugar_.class);
+                Intent intent = new Intent(getApplicationContext(), MostrarInfoLugar_.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
