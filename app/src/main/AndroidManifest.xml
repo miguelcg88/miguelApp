@@ -26,7 +26,7 @@
 
         <meta-data
             android:name="AA_MODELS"
-            android:value="com.miguel.angelcalderon.model.Category, com.miguel.angelcalderon.model.Place, com.miguel.angelcalderon.model.Item, com.miguel.angelcalderon.query.DefaultData"/>
+            android:value="com.miguel.angelcalderon.model.Categoria, com.miguel.angelcalderon.model.Lugar, com.miguel.angelcalderon.model.Item, com.miguel.angelcalderon.query.DefaultData"/>
 
         <activity
             android:name=".Principal_"
