@@ -21,4 +21,10 @@
     <string name="about_link"><a href='http://www.pons.bo'>http://www.pons.bo</a></string>
     <string name="web_in_about">Si deseas saber mas o publicitar en Pons, entra a nuestra pagina web</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_simple_fragment_pager_adapter">SimpleFragmentPagerAdapter</string>
+    <string name="title_activity_sample_fragment_pager_adapter">SampleFragmentPagerAdapter</string>
+    <string name="title_activity_eventos">Eventos</string>
+
 </resources>

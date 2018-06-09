@@ -64,6 +64,7 @@ public class Principal extends AppCompatActivity {
     @Click
     void btnMenuHelpMe() {
         Log.d(TAG, "Btn pressed ListPlacesActivity");
+        startActivity(new Intent(this, EscogerCategoria_.class));
         Bundle bundle = new Bundle();
         Lugar lugar = new Query().getPlaceRandom();
         ((App)getApplicationContext()).setLugarToShow(lugar);
