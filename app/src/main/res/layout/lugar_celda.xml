@@ -62,7 +62,7 @@
             <ImageView
                 android:scaleType="fitXY"
                 android:id="@+id/iv_icon_place"
-                android:src="@drawable/millajta_icon"
+                android:src="@drawable/panchita_icon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

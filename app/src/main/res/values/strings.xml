@@ -18,8 +18,8 @@
     <string name="title_place">Titulo de Lugar</string>
     <string name="phone_place">444444</string>
     <string name="address_place">av. America entre c. Junin y c. Pedro</string>
-    <string name="about_link"><a href='http://www.pons.bo'>http://www.pons.bo</a></string>
-    <string name="web_in_about">Si deseas saber mas o publicitar en Pons, entra a nuestra pagina web</string>
+    <string name="about_link"><a href='http://www.pons.bo'>http://www.ponseventos.com</a></string>
+    <string name="web_in_about">Si deseas saber mas o publicitar en Pons, entra a nuestra página web</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -69,7 +69,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textStyle="bold"
-            android:text="Samuel Reque"
+            android:text=""
             android:textColor="@color/white" />
 
     </TableRow>
@@ -101,7 +101,7 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Esteban Vargas (Iconos)"
+            android:text="Esteban Vargas (Iconos e imágenes)"
             android:textColor="@color/white" />
 
     </TableRow>
